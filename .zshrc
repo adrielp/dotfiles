@@ -103,3 +103,6 @@ alias reload="source ~/.zshrc"
 alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 
 PS1="%n@%m %1 %~ %#"
+# Fixed moving forward and backward on the command line using alt and arrow keys
+bindkey "^[^[[D" backward-word
+bindkey "^[^[[C" forward-word
