@@ -61,6 +61,9 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 # see 'man strftime' for details.
 # HIST_STAMPS="mm/dd/yyyy"
 
+# Adding to ignore messages about permissions on zsh directories
+ZSH_DISABLE_COMPFIX="true"
+
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
