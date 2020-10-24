@@ -1,7 +1,6 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-
 syntax on
 
 set noerrorbells
@@ -20,17 +19,17 @@ set incsearch
 
 set nostartofline
 set confirm
-set mouse=a
+"set mouse=a
 set expandtab
-"set guicursor=
+set guicursor=
 
-
-set colorcolumn=120
+set colorcolumn=79
 highlight ColorColumn ctermbg=0 guibg=lightgrey
-
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'tweekmonster/gofmt.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-utils/vim-man'
@@ -75,14 +74,20 @@ map gC :call Uncomment()<CR>
 "undo tree
 noremap <leader>u :UndotreeShow<CR>
 
+"quick clear of highlighting
+"you can manually run the :let @/ = \"\" as an alternative
+noremap <leader>C :let @/ = ""<CR>
+
 "Quick comment and uncomment of line functions
 
 function! Comment()
 	let ft = &filetype
-	if ft == 'php' || ft == 'ruby' || ft == 'sh' || ft == 'make' || ft == 'python' || ft == 'perl'
+	if ft == 'php' || ft == 'ruby' || ft == 'sh' || ft == 'make' || ft == 'python' || ft == 'perl' || ft == 'yaml' || ft == 'yml'
 		silent s/^/\#/
 	elseif ft == 'javascript' || ft == 'c' || ft == 'cpp' || ft == 'java' || ft == 'objc' || ft == 'scala' || ft == 'go'
 		silent s:^:\/\/:g
+	elseif ft == 'jenkinsfile' || ft == 'groovy'
+		silent s:^\/\/::g
 	elseif ft == 'tex'
 		silent s:^:%:g
 	elseif ft == 'vim'
@@ -92,9 +97,11 @@ endfunction
 
 function! Uncomment()
 	let ft = &filetype
-	if ft == 'php' || ft == 'ruby' || ft == 'sh' || ft == 'make' || ft == 'python' || ft == 'perl'
+	if ft == 'php' || ft == 'ruby' || ft == 'sh' || ft == 'make' || ft == 'python' || ft == 'perl' || ft == 'yaml' || ft == 'yml'
 		silent s/^\#//
 	elseif ft == 'javascript' || ft == 'c' || ft == 'cpp' || ft == 'java' || ft == 'objc' || ft == 'scala' || ft == 'go'
+		silent s:^\/\/::g
+	elseif ft == 'jenkinsfile' || ft == 'groovy'
 		silent s:^\/\/::g
 	elseif ft == 'tex'
 		silent s:^%::g
@@ -105,8 +112,8 @@ endfunction
 
 "Fuzzy Finder
 "This Only works on VIM 8.2+ with PopUp Windows.
-"Currently Not upgrading MAC version of VIM to 8.2, but will work on my RHEL
-"Machines
+"For mac, install 8.2 with brew
+"For linux, build from source or use brew as well. 
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 let $FZF_DEFAULT_OPTS='--reverse'
 let g:fzf_branch_actions = {
