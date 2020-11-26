@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+tmux new -s blog -d
+
+while [ "$#" -gt 0 ]; do
+    curr=$1
+    shift
+    
+    case "$curr" in
+    "-blog")
+        tmux neww -t blog: -n blog -d 'cd ~/Development/repos/apdev-hugo/adrielperkins.dev; vim .'
+        ;;
+    "-temp")
+        tmux neww -t blog: -n temp -d 'cd ~/Development/repos/hugo-trash; vim .'
+        ;;
+    "-web")
+        tmux neww -t blog: -n web_server -d 'cd ~/Development/repos/apdev-hugo; vim .'
+        ;;
+    *) echo "Command not available... $curr"
+    esac
+done
+
