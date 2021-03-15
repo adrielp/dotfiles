@@ -32,7 +32,7 @@ set colorcolumn=80
 set termguicolors
 hi Cursor guifg=green guibg=green
 
-highlight ColorColumn ctermbg=50 guibg=lightgreen
+highlight ColorColumn ctermbg=0 guibg=blue
 
 
 call plug#begin('~/.config/nvim/plugged')
