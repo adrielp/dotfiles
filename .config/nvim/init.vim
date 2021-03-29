@@ -13,11 +13,11 @@ syntax on
 set shiftwidth=4
 set noerrorbells
 set tabstop=4 softtabstop=4
-set shiftwidth=4
 set expandtab
 set smartindent
 set nu
 set nowrap
+set ignorecase
 set smartcase
 set noswapfile
 set nobackup
@@ -26,14 +26,9 @@ set undofile
 set incsearch
 set nostartofline
 set confirm
-set expandtab
 set guicursor=
 set colorcolumn=80
 set termguicolors
-hi Cursor guifg=green guibg=green
-
-highlight ColorColumn ctermbg=0 guibg=blue
-
 
 call plug#begin('~/.config/nvim/plugged')
 
