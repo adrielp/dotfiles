@@ -105,6 +105,7 @@ alias ll="ls -al"
 alias reload="source ~/.zshrc" 
 alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias blog_session="~/Dotfiles/blog_session"
+alias vim="nvim"
 
 PS1="%n@%m %1 %~ %#"
 # Fixed moving forward and backward on the command line using alt and arrow keys
