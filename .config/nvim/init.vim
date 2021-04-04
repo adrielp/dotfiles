@@ -13,7 +13,6 @@ syntax on
 set shiftwidth=4
 set noerrorbells
 set tabstop=4 softtabstop=4
-set shiftwidth=4
 set expandtab
 set smartindent
 set nu
@@ -54,6 +53,10 @@ call plug#end()
 
 " LSP Installs
 lua require'lspconfig'.pyright.setup{}
+" lua require'lspconfig'.bashls.setup{}
+" lua require'lspconfig'.jsonls.setup{}
+" lua require'lspconfig'.yamlls.setup{}
+" lua require'lspconfig'.tsserver.setup{}
 
 
 " LSP Basic Configuration 
@@ -67,6 +70,7 @@ nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
 nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
 nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 
+let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
 set background=dark
 
