@@ -28,6 +28,9 @@ iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
 ```
 
 On Windows, I use NeoVim inside of Windows Terminal. 
+I install the nightly release of NeoVim via `scoop`. 
+See [NeoVim Installation Docs on Github](https://github.com/neovim/neovim/wiki/Installing-Neovim)
+
 I created a specific Terminal Profile with the following command to spawn a new terminal in the directory of my choice.
 This command is set in Windows Terminal configuration.
 ```
