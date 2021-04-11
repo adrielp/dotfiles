@@ -34,7 +34,7 @@ See [NeoVim Installation Docs on Github](https://github.com/neovim/neovim/wiki/I
 I created a specific Terminal Profile with the following command to spawn a new terminal in the directory of my choice.
 This command is set in Windows Terminal configuration.
 ```
-wt cd C:\path\to\development\directory && nvim -u C:\path\to\my\init.vim\because\it's\not\the\default\location .
+wt -d C:\path\to\development\directory && nvim -u C:\path\to\my\init.vim\because\it's\not\the\default\location .
 ```
 
 Additionally, I make sure to install Language Server Protocols through `npm`
