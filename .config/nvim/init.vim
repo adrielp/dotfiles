@@ -16,6 +16,7 @@ set tabstop=4 softtabstop=4
 set expandtab
 set smartindent
 set nu
+set rnu
 set nowrap
 set ignorecase
 set smartcase
