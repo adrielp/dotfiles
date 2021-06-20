@@ -105,6 +105,9 @@ inoremap <C-c> <esc>
 "nerdtree 
 map <leader>n :NERDTreeToggle<CR>
 noremap <leader>n :NERDTreeToggle<CR>
+" enabled line numbers in nerd tree
+let NERDTreeShowLineNumbers=1
+autocmd FileType nerdtree setlocal rnu nu
 
 "comment functions
 map gc :call Comment()<CR>
