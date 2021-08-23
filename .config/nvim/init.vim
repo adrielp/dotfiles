@@ -30,6 +30,7 @@ set confirm
 set guicursor=
 set colorcolumn=80
 set termguicolors
+set list
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -45,7 +46,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'vim-utils/vim-man'
 Plug 'mbbill/undotree'
 Plug 'sheerun/vim-polyglot'
-"Plug 'stsewd/fzf-checkout.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'gruvbox-community/gruvbox'
 Plug 'preservim/nerdtree'
@@ -53,7 +53,12 @@ Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
+Plug 'windwp/nvim-autopairs'
+"Plug 'stsewd/fzf-checkout.vim'
 call plug#end()
+
+" AutoPairs
+lua require('nvim-autopairs').setup{}
 
 " LSP Installs
 lua require'lspconfig'.pyright.setup{}
@@ -62,6 +67,13 @@ lua require'lspconfig'.pyright.setup{}
 " lua require'lspconfig'.yamlls.setup{}
 " lua require'lspconfig'.tsserver.setup{}
 
+" nvim-completion configuration
+lua require'lspconfig'.pyright.setup{on_attach=require'completion'.on_attach}
+
+" Set completelopt to have a better completion experience
+set completeopt=menuone,noinsert,noselect
+" Avoid showing message extra message when using completion
+set shortmess+=c
 
 " LSP Basic Configuration 
 nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
@@ -86,6 +98,8 @@ nnoremap <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>
 nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
+nnoremap <leader>gb <cmd>lua require('telescope.builtin').git_branches()<cr>
+nnoremap <leader>gc <cmd>lua require('telescope.builtin').git_commits()<cr>
 
 
 
@@ -108,10 +122,6 @@ noremap <leader>n :NERDTreeToggle<CR>
 let NERDTreeShowLineNumbers=1
 autocmd FileType nerdtree setlocal rnu nu
 
-"comment functions
-map gc :call Comment()<CR>
-map gC :call Uncomment()<CR>
-
 "undo tree
 noremap <leader>u :UndotreeShow<CR>
 
@@ -119,34 +129,5 @@ noremap <leader>u :UndotreeShow<CR>
 "you can manually run the :let @/ = \"\" as an alternative
 noremap <leader>C :let @/ = ""<CR>
 
-"Quick comment and uncomment of line functions
-
-function! Comment()
-	let ft = &filetype
-	if ft == 'php' || ft == 'ruby' || ft == 'sh' || ft == 'make' || ft == 'python' || ft == 'perl' || ft == 'yaml' || ft == 'yml' || ft == 'tmux'
-		silent s/^/\#/
-	elseif ft == 'javascript' || ft == 'c' || ft == 'cpp' || ft == 'java' || ft == 'objc' || ft == 'scala' || ft == 'go'
-		silent s:^:\/\/:g
-	elseif ft == 'jenkinsfile' || ft == 'groovy'
-		silent s:^\/\/::g
-	elseif ft == 'tex'
-		silent s:^:%:g
-	elseif ft == 'vim'
-		silent s:^:\":g
-	endif
-endfunction
-
-function! Uncomment()
-	let ft = &filetype
-	if ft == 'php' || ft == 'ruby' || ft == 'sh' || ft == 'make' || ft == 'python' || ft == 'perl' || ft == 'yaml' || ft == 'yml' || ft == 'tmux'
-		silent s/^\#//
-	elseif ft == 'javascript' || ft == 'c' || ft == 'cpp' || ft == 'java' || ft == 'objc' || ft == 'scala' || ft == 'go'
-		silent s:^\/\/::g
-	elseif ft == 'jenkinsfile' || ft == 'groovy'
-		silent s:^\/\/::g
-	elseif ft == 'tex'
-		silent s:^%::g
-	elseif ft == 'vim'
-		silent s:^\"::g
-	endif
-endfunction
+" escaping out of a terminal
+tnoremap <Esc> <c-\><C-n>
