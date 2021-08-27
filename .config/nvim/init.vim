@@ -106,6 +106,8 @@ nnoremap <leader>gc <cmd>lua require('telescope.builtin').git_commits()<cr>
 let g:gruvbox_contrast_dark = 'hard'
 colorscheme gruvbox
 set background=dark
+" Set transparent background for VIM
+hi Normal guibg=NONE ctermbg=NONE
 
 noremap <leader>h :wincmd h<CR>
 noremap <leader>j :wincmd j<CR>
