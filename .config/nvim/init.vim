@@ -54,6 +54,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'windwp/nvim-autopairs'
+Plug 'bfredl/nvim-ipy'
 "Plug 'stsewd/fzf-checkout.vim'
 call plug#end()
 
