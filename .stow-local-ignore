@@ -1,0 +1,9 @@
+\.git
+
+^/.gitignore
+^/README.*
+^/LICENSE.*
+^/setup_env.*
+^/Brewfile
+^/Brewfile.*
+^/.DS_Store
