@@ -71,7 +71,7 @@ lua require('nvim-autopairs').setup{}
 " LSP Installs
 lua require('lspconfig').pyright.setup{}
 lua require('lspconfig').gopls.setup{}
-" lua require'lspconfig'.bashls.setup{}
+lua require('lspconfig').bashls.setup{}
 " lua require'lspconfig'.jsonls.setup{}
 " lua require'lspconfig'.yamlls.setup{}
 " lua require'lspconfig'.tsserver.setup{}
