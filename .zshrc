@@ -9,14 +9,12 @@ fi
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 export TERM="xterm-256color"
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/adriel/.oh-my-zsh"
+export ZSH="$HOME/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-#ZSH_THEME="powerlevel9k/powerlevel9k"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
@@ -112,7 +110,6 @@ source $ZSH/oh-my-zsh.sh
 alias ll="ls -al"
 alias reload="source ~/.zshrc" 
 alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
-alias blog_session="~/Dotfiles/blog_session"
 alias vim="nvim"
 
 PS1="%n@%m %1 %~ %#"
@@ -125,3 +122,5 @@ bindkey "^[^[[C" forward-word
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+#If you come from bash you might have to change your $PATH.
+export PATH=$HOME/go/bin:$PATH
