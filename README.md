@@ -1,49 +1,57 @@
 # Adriel's Dotfiles Repository
-This repository hosts my various `dot` files used to replicate configuration.
+This repository hosts `.files` (*dotfiles*) used for my personal development
+environment workflow. The scripts in this repository, and the assumptions made
+are mostly intended for MacOS; however, there are cross-platform applications
+for Linux systems.
+
+# Instructions
+The following things need to be run in order. This will take a new computer
+from zero -> hero. This is designed primarily for MacOS, but also works on
+Linux and can "kinda" be used on Windows.
+
+1. the [Homebrew Package Manager](https://brew.sh)
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+2. Install and Configure [Oh My ZSH](https://ohmyz.sh)
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" ""
+```
+3. Install and Configure [Powerlevel10k](https://github.com/romkatv/powerlevel10k#oh-my-zsh)
+```
+git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+```
+4. Run [./setup_env.sh](./setup_env.sh) to:
+    - install brew bundles
+    - stow the dotfiles
+    > If  you get errors with stow due to files already existing, ensure that
+    > you backup the hold files and then delete them to let stow replace them.
+5. Open NeoVim by running `nvim` or `vim` and run:
+    - `:PlugInstall`
 
 ## Files in this repository
-- .zshrc # my zshrc configuration 
-- .vimrc # my vim configuration 
-Requires vim-plug installation then `:PlugInstall`
-- .tmux.conf # my basic tmux configuration file
-This file may re-act differently on different OS's and different terminals.
-This file here is primarily used on MacOS with configuration change needed on Linux. 
-- .config/nvim/init.vim
+```
+.
+├── LICENSE.md
+├── README.md
+├── init.vim # my [NeoVim config file](https://neovim.io)
+├── tmux.conf # my basic [Tmux](https://github.com/tmux/tmux/wiki) configuration file
+└── zshrc # my zshrc configuration geared towards [Oh My ZSH](https://ohmyz.sh)
+```
+The files in this repository are a continual work in progress. The automation listed
+in this repository will do the following:
+- Create a `~/.config` directory to place your NeoVim configuration.
+- Install [vim-plug](https://github.com/junegunn/vim-plug)
+- Install several packages using `brew bundle` against the `Brewbundle` file
+- Globally install a few language servers used by NeoVIM using NPM
 
-This is my basic NeoVim configuration file and is continually a work in progress. 
 
-Currently, I use the `.config` directory in my home to be the place where all my NeoVim configuration
-lives. I'm able to use this same configuration on MacOS, Windows 10, and various Linux OSes. 
-This also requires that you install [vim-plug](https://github.com/junegunn/vim-plug)
-If you use the commands listed on the `vim-plug README.md` you'll have to do some editing of the `init.vim`
-file to point to the correct locations.
 
-The commands I have used to install on Linux and Windows that match my configuration are as follows:
-**Linux/MacOS**
-```
-sh -c 'curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
-       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-```
-**Windows**
-```
-iwr -useb https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim |`
-    ni "~/.config/nvim/autoload/plug.vim" -Force
-```
 
-On Windows, I use NeoVim inside of Windows Terminal. 
-I install the nightly release of NeoVim via `scoop`.
-> On Linux and MacOS I use `homebrew` to install the nightly release of NeoVim.
-See [NeoVim Installation Docs on Github](https://github.com/neovim/neovim/wiki/Installing-Neovim)
 
-I created a specific Terminal Profile with the following command to spawn a new terminal in the directory of my choice.
-This command is set in Windows Terminal configuration.
-```
-wt -d C:\path\to\development\directory && nvim -u C:\path\to\my\init.vim\because\it's\not\the\default\location .
-```
 
 Additionally, I make sure to install Language Server Protocols through `npm`.
 Example:
 ```
 npm i -g pyright
 ```
-
