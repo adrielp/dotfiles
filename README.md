@@ -26,17 +26,25 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
     - stow the dotfiles
     > If  you get errors with stow due to files already existing, ensure that
     > you backup the hold files and then delete them to let stow replace them.
+    - install vim-plug
+    - install a couple lsps
 5. Open NeoVim by running `nvim` or `vim` and run:
     - `:PlugInstall`
 
 ## Files in this repository
 ```
 .
+├── .config
+│   └── nvim
+│       └── init.vim
+├── .gitignore
+├── .stow-local-ignore
+├── .tmux.conf
+├── .zshrc
+├── Brewfile
 ├── LICENSE.md
 ├── README.md
-├── init.vim # my [NeoVim config file](https://neovim.io)
-├── tmux.conf # my basic [Tmux](https://github.com/tmux/tmux/wiki) configuration file
-└── zshrc # my zshrc configuration geared towards [Oh My ZSH](https://ohmyz.sh)
+└── setup_env.sh
 ```
 The files in this repository are a continual work in progress. The automation listed
 in this repository will do the following:
@@ -44,14 +52,3 @@ in this repository will do the following:
 - Install [vim-plug](https://github.com/junegunn/vim-plug)
 - Install several packages using `brew bundle` against the `Brewbundle` file
 - Globally install a few language servers used by NeoVIM using NPM
-
-
-
-
-
-
-Additionally, I make sure to install Language Server Protocols through `npm`.
-Example:
-```
-npm i -g pyright
-```
