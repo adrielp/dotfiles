@@ -104,13 +104,16 @@ source $ZSH/oh-my-zsh.sh
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# Aliases that I use
 alias ll="ls -al"
 alias reload="source ~/.zshrc" 
 alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias vim="nvim"
+alias k="kubectl"
+
+
+# Kubectl completion
+source <(kubectl completion zsh)
 
 PS1="%n@%m %1 %~ %#"
 # Fixed moving forward and backward on the command line using alt and arrow keys
