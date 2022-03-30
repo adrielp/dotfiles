@@ -25,6 +25,7 @@
  brew "libksba"
  brew "libtool"
  brew "maven"
+ brew "minikube"
  brew "openssl@1.1"
  brew "pkg-config"
  brew "python@3.10"
