@@ -39,3 +39,4 @@
  brew "xz"
  brew "yarn"
 
+ cask "vscodium"
