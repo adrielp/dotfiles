@@ -39,4 +39,5 @@
  brew "xz"
  brew "yarn"
 
+ cask "dbeaver-community"
  cask "vscodium"
