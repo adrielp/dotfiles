@@ -30,7 +30,7 @@ set confirm
 set guicursor=
 set colorcolumn=80
 set termguicolors
-set list
+" set list
 
 call plug#begin('~/.config/nvim/plugged')
 
