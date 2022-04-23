@@ -1,5 +1,8 @@
 #! /usr/bin/env zsh
 
+# exit immediately on failure
+set -ex
+
 # check if brewfile exists and then run brew bundle
 if [ -f "Brewfile" ]
 then
@@ -15,6 +18,13 @@ then
     echo "Stow does not exist, exiting..."
     exit 1
 else
+    # backup the previous .zshrc file incase it exists but isn't a symlinked file
+    # - pertinent on brand new setups
+    if ! [ -L "$HOME/.zshrc" ]
+    then
+        echo "Backing up original .zshrc"
+        mv $HOME/.zshrc $HOME/.zshrc.bak
+    fi
     echo "Stowing directory"
     stow . --restow --target=$HOME
 fi
