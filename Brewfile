@@ -1,4 +1,5 @@
 tap "norwoodj/tap"
+tap "hashicorp/tap"
 
 brew "ansible"
 brew "automake"
@@ -35,6 +36,7 @@ brew "rust"
 brew "stow"
 brew "terragrunt", args: ["ignore-dependencies"]
 brew "tfenv"
+brew "hashicorp/tap/terraform-ls"
 brew "helm-docs"
 brew "tmux"
 brew "tree"
