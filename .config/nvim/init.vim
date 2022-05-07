@@ -77,6 +77,7 @@ lua require('nvim-autopairs').setup{}
 lua require('lspconfig').pyright.setup{}
 lua require('lspconfig').gopls.setup{}
 lua require('lspconfig').bashls.setup{}
+lua require('lspconfig').terraformls.setup{ filetypes = {"terraform", "hcl", "tf"}}
 " lua require'lspconfig'.jsonls.setup{}
 " lua require'lspconfig'.yamlls.setup{}
 " lua require'lspconfig'.tsserver.setup{}
