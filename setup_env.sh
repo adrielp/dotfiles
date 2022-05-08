@@ -1,7 +1,7 @@
 #! /usr/bin/env zsh
 
 # exit immediately on failure
-set -ex
+set -exo pipefail
 
 # check if brewfile exists and then run brew bundle
 if [ -f "Brewfile" ]
@@ -38,6 +38,10 @@ else
     curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
            https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 fi
+
+# Install Plugins
+nvim -c 'PlugInstall --sync' +qall
+nvim -c 'PlugUpdate --sync' +qall
 
 # Install NPM LSPs
 npm install -g pyright
