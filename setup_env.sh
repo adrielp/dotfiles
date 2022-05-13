@@ -8,7 +8,7 @@ all=1
 brew=0
 stow=0
 nvim=0
-lsp=0
+package=0
 
 die() {
     printf '%s\n' "$1" >&2
@@ -21,7 +21,7 @@ show_help() {
     echo "[-b|--brew] - Runs brew bundle."
     echo "[-s|--stow] - Runs stow against the dotfiles."
     echo "[-n|--nvim] - Runs install of NVIM plugins."
-    echo "[-l|--lsp] - Runs install of LSPs."
+    echo "[-p|--package] - Runs install of other packages."
 }
 
 brew_install() {
@@ -68,10 +68,13 @@ nvim_setup() {
     nvim -c 'PlugUpdate --sync' +qall
 }
 
-lsp_install() {
+package_install() {
     # Install NPM LSPs
     npm install -g pyright
     npm install -g bash-language-server
+
+    # Install other NPM packages
+    npm install -g semantic-release
 
     # Install gopls
     go install golang.org/x/tools/gopls@latest
@@ -96,8 +99,8 @@ while :; do
             nvim=1
             all=0
             ;;
-        -l|--lsp)
-            lsp=1
+        -p|--package)
+            package=1
             all=0
             ;;
         --)              # End of all options.
@@ -128,7 +131,7 @@ then
     nvim_setup
 fi
 
-if [ $lsp = 1 ] || [ $all = 1 ]
+if [ $package = 1 ] || [ $all = 1 ]
 then
-    lsp_install
+    package_install
 fi
