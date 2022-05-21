@@ -110,6 +110,7 @@ alias reload="source ~/.zshrc"
 alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias vim="nvim"
 alias k="kubectl"
+alias docker="nerdctl"
 
 
 # Kubectl completion
