@@ -7,6 +7,7 @@ set -eo pipefail
 all=1
 brew=0
 stow=0
+unstow=0
 nvim=0
 package=0
 
@@ -42,13 +43,24 @@ stow_files() {
     else
         # backup the previous .zshrc file incase it exists but isn't a symlinked file
         # - pertinent on brand new setups
-        if ! [ -L "$HOME/.zshrc" ]
+        if [[ (! -L "$HOME/.zsrhc") && (-f "$HOME/.zshrc") ]]
         then
             echo "Backing up original .zshrc"
             mv $HOME/.zshrc $HOME/.zshrc.bak
         fi
         echo "Stowing directory"
         stow . --restow --target=$HOME
+    fi
+}
+
+unstow_files() {
+    if (command -v stow)
+    then
+        echo "Unstowing files."
+        stow -D .
+    else
+        echo "The Stow command doesn't exist."
+        exit 1
     fi
 }
 
@@ -66,6 +78,7 @@ nvim_setup() {
     # Install Plugins
     nvim -c 'PlugInstall --sync' +qall
     nvim -c 'PlugUpdate --sync' +qall
+    nvim -c 'TSUpdate' +qall
 }
 
 package_install() {
@@ -95,6 +108,10 @@ while :; do
             stow=1
             all=0
             ;;
+        -u|--unstow)
+            unstow=1
+            all=0
+            ;;
         -n|--nvim)
             nvim=1
             all=0
@@ -121,10 +138,16 @@ then
     brew_install
 fi
 
+if [ $unstow = 1 ]
+then
+    unstow_files
+fi
+
 if [ $stow = 1 ] || [ $all = 1 ]
 then
     stow_files
 fi
+
 
 if [ $nvim = 1 ] || [ $all = 1 ]
 then
