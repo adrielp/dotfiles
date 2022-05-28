@@ -7,3 +7,4 @@
 ^/Brewfile
 ^/Brewfile.*
 ^/.DS_Store
+^/.iterm-profile.json
