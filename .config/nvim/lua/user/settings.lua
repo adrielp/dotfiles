@@ -32,10 +32,13 @@ end
 
 -- Globals
 vim.opt.shortmess:append "c"
-vim.g.gruvbox_contrast_dark = "hard"
-vim.g.NERDTreeShowLineNumbers = "1"
+-- vim.g.NERDTreeShowLineNumbers = "1" -- show line numbers in nerd tree if using it
+
+-- Themes
+vim.cmd("colorscheme onedark")
+-- vim.g.gruvbox_contrast_dark = "hard"
+-- vim.cmd("colorscheme gruvbox")
 
 -- Commands
-vim.cmd("colorscheme gruvbox")
 vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 vim.cmd("autocmd Filetype nerdtree setlocal rnu nu")

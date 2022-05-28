@@ -79,6 +79,7 @@ nvim_setup() {
     nvim -c 'PlugInstall --sync' +qall
     nvim -c 'PlugUpdate --sync' +qall
     nvim -c 'TSUpdate' +qall
+    nvim -c 'COQdeps' +qall
 }
 
 package_install() {
@@ -147,7 +148,6 @@ if [ $stow = 1 ] || [ $all = 1 ]
 then
     stow_files
 fi
-
 
 if [ $nvim = 1 ] || [ $all = 1 ]
 then

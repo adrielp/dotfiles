@@ -52,3 +52,10 @@ in this repository will do the following:
 - Install [vim-plug](https://github.com/junegunn/vim-plug)
 - Install several packages using `brew bundle` against the `Brewbundle` file
 - Globally install a few language servers used by NeoVIM using NPM
+
+## VSCode (WIP)
+You can use the NeoVim plugin for VSCode with this setup.
+To make sure `j k h l` run on hold, you need to run the following command on MacOS.
+`defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false`
+
+You can read more about this on [VSCodium/VIM's Readme](https://github.com/VSCodeVim/Vim/blob/master/README.md#mac-setup)
