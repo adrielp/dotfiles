@@ -7,7 +7,7 @@ local coq = require "coq"
 lsp.pyright.setup(coq.lsp_ensure_capabilities())
 lsp.gopls.setup(coq.lsp_ensure_capabilities())
 lsp.bashls.setup(coq.lsp_ensure_capabilities())
-lsp.terraformls.setup{coq.lsp_ensure_capabilities{filetypes = {'terraform', 'hcl', 'tf'}}}
+lsp.terraformls.setup(coq.lsp_ensure_capabilities())
 
 -- Unused LSPs that you can enable if you download them.
 -- require'lspconfig'.jsonls.setup{}

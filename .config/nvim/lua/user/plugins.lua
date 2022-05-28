@@ -30,6 +30,7 @@ Plug 'tomlion/vim-solidity' -- Syntax for solidity: https://github.com/tomlion/v
 -- Plug 'vim-utils/vim-man' -- Man pages in Vim: https://github.com/vim-utils/vim-man
 -- Plug 'gruvbox-community/gruvbox' -- gruvbox colortheme: https://github.com/gruvbox-community/gruvbox
 -- Plug 'preservim/nerdtree' -- Filetree explorer replaces netrw: https://github.com/preservim/nerdtree
+-- Plug 'jupyter-vim/jupyter-vim' -- Juptyer frontend for Vim that's actively maintained: https://github.com/jupyter-vim/jupyter-vim
 -- Plug 'bfredl/nvim-ipy' -- Jupyter frontend for NeoVim: https://github.com/bfredl/nvim-ipy
 -- Plug 'tjdevries/nlua.nvim' -- Lua Development for NeoVim: https://github.com/tjdevries/nlua.nvim
 -- Plug 'nvim-lua/lsp_extensions.nvim' -- Extensions for build-in LSP: https://github.com/nvim-lua/lsp_extensions.nvim

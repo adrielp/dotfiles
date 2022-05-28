@@ -36,9 +36,10 @@ vim.opt.shortmess:append "c"
 
 -- Themes
 vim.cmd("colorscheme onedark")
+vim.g.airline_theme = "onedark"
 -- vim.g.gruvbox_contrast_dark = "hard"
 -- vim.cmd("colorscheme gruvbox")
 
 -- Commands
 vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
-vim.cmd("autocmd Filetype nerdtree setlocal rnu nu")
+-- vim.cmd("autocmd Filetype nerdtree setlocal rnu nu")
