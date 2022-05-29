@@ -107,11 +107,11 @@ source $ZSH/oh-my-zsh.sh
 # Aliases that I use
 alias ll="ls -al"
 alias reload="source ~/.zshrc" 
-alias config="git --git-dir=$HOME/.cfg/ --work-tree=$HOME"
 alias vim="nvim"
 alias k="kubectl"
 alias docker="nerdctl"
-
+alias n="nerdctl"
+alias v="nvim"
 
 # Kubectl completion
 source <(kubectl completion zsh)
@@ -132,3 +132,13 @@ export PATH=$HOME/go/bin:$PATH
 ### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
 export PATH="/Users/adrielperkins/.rd/bin:$PATH"
 ### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
+
+# if you want to load extra zshrc files to source additional config then create
+# a $HOME/ext-config directory and add files ending in .zsrch for this to source them
+if [[ -d $HOME/ext-config/ ]]
+then
+    for f in $HOME/ext-config/*.zshrc
+    do
+        source $f
+    done
+fi
