@@ -16,8 +16,7 @@ local keymap = vim.api.nvim_set_keymap
 
 -- Misc Remaps
 keymap("i", "<C-c>", "<esc>", opts)
-keymap("n", "<leader>n", ":NERDTreeToggle<cr>", opts)
-keymap("n", "<leader>n", ":NERDTreeToggle<cr>", term_opts)
+keymap("n", "<leader>n", ":Ex<cr>:set rnu<cr>", opts)
 keymap("n", "<leader>u", ":UndotreeShow<cr>", opts)
 keymap("n", "<leader>C", ":let @/ = ''<cr>", opts)
 keymap("n", "<leader>so", ":so %<cr>", opts)
