@@ -16,11 +16,16 @@ local keymap = vim.api.nvim_set_keymap
 
 -- Misc Remaps
 keymap("i", "<C-c>", "<esc>", opts)
-keymap("n", "<leader>n", ":Ex<cr>:set rnu<cr>", opts)
 keymap("n", "<leader>u", ":UndotreeShow<cr>", opts)
 keymap("n", "<leader>C", ":let @/ = ''<cr>", opts)
 keymap("n", "<leader>so", ":so %<cr>", opts)
 keymap("t", "<esc>", "<c-\\><C-n>", term_opts)
+-- keymap("n", "<leader>n", ":Ex<cr>:set rnu<cr>", opts) -- Keymap for netrw if you want to use that instead of filetree
+
+-- Nvim Tree remaps
+keymap("n", "<leader>n", ":NvimTreeToggle<cr>", { noremap = true })
+keymap("n", "<leader>r", ":NvimTreeRefresh<cr>", opts)
+keymap("n", "<leader>nf", ":NvimTreeFindFile<cr>", opts)
 
 -- Navigation Remaps
 keymap("n", "<leader>h", ":wincmd h<cr>", opts)
