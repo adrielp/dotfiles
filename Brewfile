@@ -66,6 +66,8 @@ cask "rancher"
 # Optional apps you can have installed
 # Some are replacements for others like: docker -> rancher
 #brew "groovy"
+#brew "vagrant-completion"
 #cask "docker"
 #cask "google-chrome"
 #cask "vscodium"
+#cask "vagrant"
