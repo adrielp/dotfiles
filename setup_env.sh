@@ -90,8 +90,11 @@ package_install() {
     # Install other NPM packages
     npm install -g semantic-release
 
-    # Install gopls
+    # Install Go packages
     go install golang.org/x/tools/gopls@latest
+    go install github.com/securego/gosec/v2/cmd/gosec@latest
+    go install honnef.co/go/tools/cmd/staticcheck@latest
+    go install golang.org/x/tools/cmd/goimports@latest
 }
 
 while :; do
