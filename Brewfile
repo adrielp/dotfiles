@@ -65,6 +65,7 @@ cask "rectangle"
 cask "visual-studio-code"
 cask "1password"
 cask "1password-cli"
+cask "postman"
 cask "rancher"
 
 # Optional apps you can have installed
