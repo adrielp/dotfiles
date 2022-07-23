@@ -112,6 +112,8 @@ alias k="kubectl"
 alias docker="nerdctl"
 alias n="nerdctl"
 alias v="nvim"
+alias tf="terraform"
+alias tg="terragrunt"
 
 # Kubectl completion
 source <(kubectl completion zsh)
