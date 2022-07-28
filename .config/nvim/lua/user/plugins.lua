@@ -23,8 +23,6 @@ Plug 'vim-airline/vim-airline' -- Status line for VIM: https://github.com/vim-ai
 Plug 'vim-airline/vim-airline-themes' -- Themes for the above
 Plug 'rust-lang/rust.vim' -- Rust file detection and syntax highlighting: https://github.com/rust-lang/rust.vim
 Plug 'tomlion/vim-solidity' -- Syntax for solidity: https://github.com/tomlion/vim-solidity
-Plug 'kyazdani42/nvim-tree.lua' -- Filetree explorer for Vim: https://github.com/kyazdani42/nvim-tree
-Plug 'kyazdani42/nvim-web-devicons' -- Required by nvim-tree to be able to show folders
 
 -- Unused plugins that you may want to enable.
 -- ------------------------------------------
@@ -36,4 +34,6 @@ Plug 'kyazdani42/nvim-web-devicons' -- Required by nvim-tree to be able to show 
 -- Plug 'bfredl/nvim-ipy' -- Jupyter frontend for NeoVim: https://github.com/bfredl/nvim-ipy
 -- Plug 'tjdevries/nlua.nvim' -- Lua Development for NeoVim: https://github.com/tjdevries/nlua.nvim
 -- Plug 'nvim-lua/lsp_extensions.nvim' -- Extensions for build-in LSP: https://github.com/nvim-lua/lsp_extensions.nvim
+-- Plug 'kyazdani42/nvim-tree.lua' -- Filetree explorer for Vim: https://github.com/kyazdani42/nvim-tree
+-- Plug 'kyazdani42/nvim-web-devicons' -- Required by nvim-tree to be able to show folders
 vim.call('plug#end')
