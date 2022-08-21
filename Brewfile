@@ -66,6 +66,7 @@ cask "1password"
 cask "1password-cli"
 cask "postman"
 cask "rancher"
+cask "miro"
 
 # Optional apps you can have installed
 # Some are replacements for others like: docker -> rancher
