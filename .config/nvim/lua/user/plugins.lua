@@ -34,6 +34,4 @@ Plug 'tomlion/vim-solidity' -- Syntax for solidity: https://github.com/tomlion/v
 -- Plug 'bfredl/nvim-ipy' -- Jupyter frontend for NeoVim: https://github.com/bfredl/nvim-ipy
 -- Plug 'tjdevries/nlua.nvim' -- Lua Development for NeoVim: https://github.com/tjdevries/nlua.nvim
 -- Plug 'nvim-lua/lsp_extensions.nvim' -- Extensions for build-in LSP: https://github.com/nvim-lua/lsp_extensions.nvim
--- Plug 'kyazdani42/nvim-tree.lua' -- Filetree explorer for Vim: https://github.com/kyazdani42/nvim-tree
--- Plug 'kyazdani42/nvim-web-devicons' -- Required by nvim-tree to be able to show folders
 vim.call('plug#end')

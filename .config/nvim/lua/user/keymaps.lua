@@ -50,9 +50,3 @@ keymap("n", "gW", "<cmd>lua vim.lsp.buf.workspace_symbol()<cr>", opts)
 keymap("n", "gd", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
 
 keymap("n", "<leader>n", ":Ex<cr>:set rnu nu<cr>", opts)
-
--- Nvim Tree remaps
--- keymap("n", "<leader>n", ":NvimTreeToggle<cr>", { noremap = true })
--- keymap("n", "<leader>r", ":NvimTreeRefresh<cr>", opts)
--- keymap("n", "<leader>nf", ":NvimTreeFindFile<cr>", opts)
-
