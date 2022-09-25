@@ -57,8 +57,21 @@ AlterCommand new New
 AlterCommand vne[w] Vnew
 AlterCommand on[ly] Only
 
+" custom adriel
 " buffer management
-nnoremap <leader>n <Cmd>call <SID>splitNew('h', '__vscode_new__')<CR>
+" nnoremap <leader>n <Cmd>call <SID>splitNew('h', '__vscode_new__')<CR>
+nnoremap <leader>n <Cmd>call VSCodeNotify('workbench.action.toggleSidebarVisibility')<CR>
+nnoremap <leader>o <Cmd>call VSCodeNotify('workbench.action.focusSideBar')<CR>
+
+nnoremap <leader><C-j> Cmd>call VSCodeNotify('workbench.action.joinAllGroups')<cr>
+nnoremap <leader><tab> <Cmd>call VSCodeNotify('workbench.action.nextEditor')<cr>
+
+nnoremap <leader>fg <Cmd>call VSCodeNotify('workbench.action.findInFiles')<cr>
+
+
+
+" end
+
 
 nnoremap <leader>q <Cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>
 nnoremap <leader>c <Cmd>call VSCodeNotify('workbench.action.closeActiveEditor')<CR>
@@ -77,7 +90,7 @@ nnoremap <leader>- <Cmd>call <SID>manageEditorHeight(v:count, 'decrease')<CR>
 nnoremap <leader>> <Cmd>call <SID>manageEditorWidth(v:count,  'increase')<CR>
 nnoremap <leader>< <Cmd>call <SID>manageEditorWidth(v:count,  'decrease')<CR>
 
-nnoremap <leader>o <Cmd>call VSCodeNotify('workbench.action.joinAllGroups')<CR>
+" nnoremap <leader>o <Cmd>call VSCodeNotify('workbench.action.joinAllGroups')<CR>
 nnoremap <leader><C-o> <Cmd>call VSCodeNotify('workbench.action.joinAllGroups')<CR>
 
 " window navigation
@@ -91,10 +104,10 @@ nnoremap <leader><Up> <Cmd>call VSCodeNotify('workbench.action.focusAboveGroup')
 nnoremap <leader><Left> <Cmd>call VSCodeNotify('workbench.action.focusLeftGroup')<CR>
 nnoremap <leader><Right> <Cmd>call VSCodeNotify('workbench.action.focusRightGroup')<CR>
 
-nnoremap <leader><C-j> <Cmd>call VSCodeNotify('workbench.action.moveEditorToBelowGroup')<CR>
-nnoremap <leader><C-i> <Cmd>call VSCodeNotify('workbench.action.moveEditorToAboveGroup')<CR>
-nnoremap <leader><C-h> <Cmd>call VSCodeNotify('workbench.action.moveEditorToLeftGroup')<CR>
-nnoremap <leader><C-l> <Cmd>call VSCodeNotify('workbench.action.moveEditorToRightGroup')<CR>
+" nnoremap <leader><C-j> <Cmd>call VSCodeNotify('workbench.action.moveEditorToBelowGroup')<CR>
+" nnoremap <leader><C-i> <Cmd>call VSCodeNotify('workbench.action.moveEditorToAboveGroup')<CR>
+" nnoremap <leader><C-h> <Cmd>call VSCodeNotify('workbench.action.moveEditorToLeftGroup')<CR>
+" nnoremap <leader><C-l> <Cmd>call VSCodeNotify('workbench.action.moveEditorToRightGroup')<CR>
 
 nnoremap <leader><C-Down> <Cmd>call VSCodeNotify('workbench.action.moveEditorToBelowGroup')<CR>
 nnoremap <leader><C-Up> <Cmd>call VSCodeNotify('workbench.action.moveEditorToAboveGroup')<CR>
@@ -118,4 +131,7 @@ nnoremap <leader>W <Cmd>call VSCodeNotify('workbench.action.focusPreviousGroup')
 nnoremap <leader>t <Cmd>call VSCodeNotify('workbench.action.focusFirstEditorGroup')<CR>
 nnoremap <leader>b <Cmd>call VSCodeNotify('workbench.action.focusLastEditorGroup')<CR>
 
-nnoremap <silent> <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>"
+" nnoremap <silent> <leader>ff <cmd>lua require('telescope.builtin').find_files()<cr>"
+
+" navigation
+" nnoremap 
