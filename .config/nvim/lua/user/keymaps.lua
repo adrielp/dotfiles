@@ -20,7 +20,7 @@ keymap("n", "<leader>u", ":UndotreeShow<cr>", opts)
 keymap("n", "<leader>C", ":let @/ = ''<cr>", opts)
 keymap("n", "<leader>so", ":so %<cr>", opts)
 keymap("t", "<esc>", "<c-\\><C-n>", term_opts)
--- keymap("n", "<leader>n", ":Ex<cr>:set rnu<cr>", opts) -- Keymap for netrw if you want to use that instead of filetree
+keymap("n", "<leader>n", ":Ex<cr>:set rnu nu<cr>", opts)
 
 -- Navigation Remaps
 keymap("n", "<leader>h", ":wincmd h<cr>", opts)
@@ -48,5 +48,3 @@ keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
 keymap("n", "g0", "<cmd>lua vim.lsp.buf.document_symbol()<cr>", opts)
 keymap("n", "gW", "<cmd>lua vim.lsp.buf.workspace_symbol()<cr>", opts)
 keymap("n", "gd", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)
-
-keymap("n", "<leader>n", ":Ex<cr>:set rnu nu<cr>", opts)

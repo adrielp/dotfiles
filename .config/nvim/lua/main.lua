@@ -11,6 +11,7 @@ require "user.plugins"
 require "user.settings"
 require "user.keymaps"
 require "user.lsp"
+require "user.treesitter"
 require('nvim-autopairs').setup{}
 
 
