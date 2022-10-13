@@ -1,2 +1,4 @@
 .DS_Store
 Brewfile.lock.json
+yarn.lock
+node_modules

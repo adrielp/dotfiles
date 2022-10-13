@@ -14,7 +14,5 @@ require "user.lsp"
 require "user.treesitter"
 require('nvim-autopairs').setup{}
 
-
 -- Extras
 -- require('telescope').load_extension('fzf')
--- require "user.nvim-cmp"

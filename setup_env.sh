@@ -79,13 +79,21 @@ nvim_setup() {
     nvim -c 'PlugInstall --sync' +qall
     nvim -c 'PlugUpdate --sync' +qall
     nvim -c 'TSUpdate' +qall
-    nvim -c 'COQdeps' +qall
+
+    # nvim coq command if running coq
+    #nvim -c 'COQdeps' +qall
 }
 
 package_install() {
     # Install NPM LSPs
     npm install -g pyright
     npm install -g bash-language-server
+    npm install -g vscode-langservers-extracted
+    npm install -g typescript typescript-language-server
+
+    # Install Yarn LSPs
+    yarn global add yaml-language-server
+
 
     # Install other NPM packages
     npm install -g semantic-release

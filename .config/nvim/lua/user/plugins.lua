@@ -6,8 +6,6 @@ vim.call('plug#begin', home .. '/.config/nvim/plugged')
 
 Plug 'psf/black' -- Python Black auto formatter: https://github.com/psf/black/blob/main/plugin/black.vim
 Plug 'neovim/nvim-lspconfig' -- NeoVim LSP Plugin: https://github.com/neovim/nvim-lspconfig
-Plug ('ms-jpq/coq_nvim', {branch = 'coq'}) -- Coq.nvim auto completer
-Plug ('ms-jpq/coq.artifacts', {branch = 'coq'}) -- Coq.nvim snippets
 Plug 'tweekmonster/gofmt.vim' -- Automatic go formatter: https://github.com/tweekmonster/gofmt.vim
 Plug 'tpope/vim-fugitive' -- Vim plugin for Git: https://github.com/tpope/vim-fugitive
 Plug 'mbbill/undotree' -- Shows an undo tree: https://github.com/mbbill/undotree
@@ -23,9 +21,22 @@ Plug 'vim-airline/vim-airline' -- Status line for VIM: https://github.com/vim-ai
 Plug 'vim-airline/vim-airline-themes' -- Themes for the above
 Plug 'rust-lang/rust.vim' -- Rust file detection and syntax highlighting: https://github.com/rust-lang/rust.vim
 Plug 'tomlion/vim-solidity' -- Syntax for solidity: https://github.com/tomlion/vim-solidity
+-- Plugins for nvim-cmp based on recommended configuration
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+
+-- For vsnip users.
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/vim-vsnip'
+-- End Plugins for nvim-cmp based on recommended configuration
 
 -- Unused plugins that you may want to enable.
 -- ------------------------------------------
+-- Plug ('ms-jpq/coq_nvim', {branch = 'coq'}) -- Coq.nvim auto completer
+-- Plug ('ms-jpq/coq.artifacts', {branch = 'coq'}) -- Coq.nvim snippets
 -- Plug ('nvim-telescope/telescope-fzf-native.nvim', {['do'] = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build' }) -- Telescope addon that improves performance: https://github.com/nvim-telescope/telescope-fzf-native.nvim
 -- Plug 'vim-utils/vim-man' -- Man pages in Vim: https://github.com/vim-utils/vim-man
 -- Plug 'gruvbox-community/gruvbox' -- gruvbox colortheme: https://github.com/gruvbox-community/gruvbox
