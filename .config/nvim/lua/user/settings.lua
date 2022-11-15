@@ -45,6 +45,7 @@ vim.g.netrw_liststyle = 3
 vim.g.netrw_winsize = 30
 vim.g.netrw_preview = 1
 vim.g.netrw_bufsettings = "noma nomod nu rnu nowrap ro nobl"
+vim.g.fugitive_dynamic_colors = 1
 
 -- Commands
 vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
