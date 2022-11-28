@@ -36,7 +36,17 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 .
 ├── .config
 │   └── nvim
-│       └── init.vim
+│       ├── init.vim
+│       ├── lua
+│       │   ├── main.lua
+│       │   └── user
+│       │       ├── keymaps.lua
+│       │       ├── lsp.lua
+│       │       ├── plugins.lua
+│       │       ├── settings.lua
+│       │       └── treesitter.lua
+│       └── vscode
+│           └── keybinds.vim
 ├── .gitignore
 ├── .stow-local-ignore
 ├── .tmux.conf
@@ -44,6 +54,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 ├── Brewfile
 ├── LICENSE.md
 ├── README.md
+├── iterm-profile.json
 └── setup_env.sh
 ```
 The files in this repository are a continual work in progress. The automation listed
