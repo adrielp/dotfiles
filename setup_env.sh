@@ -65,20 +65,27 @@ unstow_files() {
 }
 
 nvim_setup() {
-    # Check if vimplug is installed, if not install it
-    if [ -f "$HOME/.config/nvim/autoload/plug.vim" ]
+    if [ -d "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"]
     then
-        echo "VimPlug already installed. Skipping VimPlug Installation..."
-    else
-        echo "Installing VimPlug"
-        curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
-               https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        echo "Packer already installed, skipping installation..."
+    else 
+        echo "Installing Packer..."
+        git clone --depth 1 https://github.com/wbthomason/packer.nvim \
+            ~/.local/share/nvim/site/pack/packer/start/packer.nvim
     fi
+    #if [ -f "$HOME/.config/nvim/autoload/plug.vim" ]
+    #then
+    #    echo "VimPlug already installed. Skipping VimPlug Installation..."
+    #else
+    #    echo "Installing VimPlug"
+    #    curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+    #           https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    #fi
 
     # Install Plugins
-    nvim -c 'PlugInstall --sync' +qall
-    nvim -c 'PlugUpdate --sync' +qall
-    nvim -c 'TSUpdate' +qall
+    #nvim -c 'PlugInstall --sync' +qall
+    #nvim -c 'PlugUpdate --sync' +qall
+    #nvim -c 'TSUpdate' +qall
 
     # nvim coq command if running coq
     #nvim -c 'COQdeps' +qall

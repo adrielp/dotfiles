@@ -21,9 +21,16 @@ keymap("n", "<leader>C", ":let @/ = ''<cr>", opts)
 keymap("n", "<leader>so", ":so %<cr>", opts)
 keymap("t", "<esc>", "<c-\\><C-n>", term_opts)
 keymap("n", "<leader>n", ":Lexplore<cr>", opts)
-keymap("n", "<C-d", "<C-d>zz", opts)
-keymap("n", "<C-u", "<C-u>zz", opts)
--- keymap("n", "<leader>n", ":Lexplore<cr>:set rnu nu<cr>", opts)
+vim.keymap.set("n", "<C-d", "<C-d>zz")
+vim.keymap.set("n", "<C-u", "<C-u>zz")
+
+-- Awesome keymaps from theprimeagen
+vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set({"n", "v"}, "<leader>d", [["+d]])
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
 
 -- Navigation Remaps
 keymap("n", "<leader>h", ":wincmd h<cr>", opts)
@@ -40,14 +47,3 @@ keymap("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>",
 keymap("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
 keymap("n", "<leader>gb", "<cmd>lua require('telescope.builtin').git_branches()<cr>", opts)
 keymap("n", "<leader>gc", "<cmd>lua require('telescope.builtin').git_commits()<cr>", opts)
-
--- LSP Remaps
-keymap("n", "<c-]>", "<cmd>lua vim.lsp.buf.definition()<cr>", opts)
-keymap("n", "K","<cmd>lua vim.lsp.buf.hover()<cr>", opts)
-keymap("n", "gD", "<cmd>lua vim.lsp.buf.implementation()<cr>", opts)
-keymap("n", "<c-k>", "<cmd>lua vim.lsp.buf.signature_help()<cr>", opts)
-keymap("n", "1gD", "<cmd>lua vim.lsp.buf.type_definition()<cr>", opts)
-keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<cr>", opts)
-keymap("n", "g0", "<cmd>lua vim.lsp.buf.document_symbol()<cr>", opts)
-keymap("n", "gW", "<cmd>lua vim.lsp.buf.workspace_symbol()<cr>", opts)
-keymap("n", "gd", "<cmd>lua vim.lsp.buf.declaration()<cr>", opts)

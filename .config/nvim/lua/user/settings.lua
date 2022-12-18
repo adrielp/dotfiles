@@ -1,5 +1,5 @@
-home = os.getenv("HOME")
-undodirpath = home .. "/.config/nvim/undordir"
+local home = os.getenv("HOME")
+local undodirpath = home .. "/.config/nvim/undodir"
 
 local options =  {
     shiftwidth = 4,
@@ -7,7 +7,7 @@ local options =  {
     tabstop = 4,
     softtabstop = 4,
     expandtab = true,
-    smartindent = true ,
+    smartindent = true,
     nu = true,
     rnu = true,
     wrap = false,
@@ -32,13 +32,10 @@ end
 
 -- Globals
 vim.opt.shortmess:append "c"
--- vim.g.NERDTreeShowLineNumbers = "1" -- show line numbers in nerd tree if using it
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.updatetime = 50
 
--- Themes
-vim.cmd("colorscheme onedark")
-vim.g.airline_theme = "onedark"
--- vim.g.gruvbox_contrast_dark = "hard"
--- vim.cmd("colorscheme gruvbox")
 
 -- NetRW Settings
 vim.g.netrw_liststyle = 3
@@ -49,4 +46,3 @@ vim.g.fugitive_dynamic_colors = 1
 
 -- Commands
 vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
--- vim.cmd("autocmd Filetype nerdtree setlocal rnu nu")
