@@ -20,9 +20,9 @@ keymap("n", "<leader>u", ":UndotreeShow<cr>", opts)
 keymap("n", "<leader>C", ":let @/ = ''<cr>", opts)
 keymap("n", "<leader>so", ":so %<cr>", opts)
 keymap("t", "<esc>", "<c-\\><C-n>", term_opts)
-keymap("n", "<leader>n", ":Lexplore<cr>", opts)
-vim.keymap.set("n", "<C-d", "<C-d>zz")
-vim.keymap.set("n", "<C-u", "<C-u>zz")
+keymap("n", "<leader>n", ":Ex<cr>", opts)
+keymap("n", "<C-d", "<C-d>zz", opts)
+keymap("n", "<C-u", "<C-u>zz", opts)
 
 -- Awesome keymaps from theprimeagen
 vim.keymap.set("x", "<leader>p", [["_dP]])
