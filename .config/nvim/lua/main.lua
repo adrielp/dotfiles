@@ -14,6 +14,7 @@ require "user.harpoon"
 require "user.fugitive"
 require "user.lsp"
 require "user.treesitter"
+require "user.terra_fmt"
 require('nvim-autopairs').setup{}
 
 -- Extras

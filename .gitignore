@@ -2,3 +2,6 @@
 Brewfile.lock.json
 yarn.lock
 node_modules
+.config/nvim/plugin
+.config/nvim/undodir
+
