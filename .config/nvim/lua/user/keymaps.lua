@@ -21,6 +21,8 @@ keymap("n", "<leader>C", ":let @/ = ''<cr>", opts)
 keymap("n", "<leader>so", ":so %<cr>", opts)
 keymap("t", "<esc>", "<c-\\><C-n>", term_opts)
 keymap("n", "<leader>n", ":Lexplore<cr>", opts)
+keymap("n", "<C-d", "<C-d>zz", opts)
+keymap("n", "<C-u", "<C-u>zz", opts)
 -- keymap("n", "<leader>n", ":Lexplore<cr>:set rnu nu<cr>", opts)
 
 -- Navigation Remaps
