@@ -33,6 +33,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 
 ## Files in this repository
 ```
+tree
 .
 ├── .config
 │   └── nvim
@@ -40,6 +41,8 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 │       ├── lua
 │       │   ├── main.lua
 │       │   └── user
+│       │       ├── fugitive.lua
+│       │       ├── harpoon.lua
 │       │       ├── keymaps.lua
 │       │       ├── lsp.lua
 │       │       ├── plugins.lua
@@ -56,6 +59,8 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 ├── README.md
 ├── iterm-profile.json
 └── setup_env.sh
+
+5 directories, 19 files
 ```
 The files in this repository are a continual work in progress. The automation listed
 in this repository will do the following:
