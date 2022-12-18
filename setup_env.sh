@@ -65,7 +65,7 @@ unstow_files() {
 }
 
 nvim_setup() {
-    if [ -d "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"]
+    if [ -d "$HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ]
     then
         echo "Packer already installed, skipping installation..."
     else 
