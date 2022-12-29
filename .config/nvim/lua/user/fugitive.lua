@@ -5,7 +5,7 @@ vim.keymap.set("n", "<leader>gs", vim.cmd.Git)
 -- particularly when doing commits, pushing, interactive rebasing, and ammending
 -- without editing
 
-local auto_fugs = vim.api.nvim_create_augroup("auto_figs", {})
+local auto_fugs = vim.api.nvim_create_augroup("auto_fugs", {})
 local autocmd = vim.api.nvim_create_autocmd
 
 autocmd("BufWinEnter", {
