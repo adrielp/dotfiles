@@ -12,14 +12,11 @@ return require('packer').startup(function(use)
   use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
   use('nvim-treesitter/playground')
   use('theprimeagen/harpoon')
-
-  use('nvim-lua/plenary.nvim')
-  use{'nvim-telescope/telescope.nvim', tag = '0.1.0'}
-
-  -- use {
-  --     'nvim-telescope/telescope.nvim', tag = '0.1.0',
-  --     requires = { {'nvim-lua/plenary.nvim'} }
-  -- }
+  use{'fatih/vim-go', tag = 'v1.28'}
+  use {
+      'nvim-telescope/telescope.nvim', tag = '0.1.0',
+      requires = { {'nvim-lua/plenary.nvim'} }
+  }
 
   use {
 	  'VonHeikemen/lsp-zero.nvim',
@@ -54,28 +51,5 @@ return require('packer').startup(function(use)
   })
   use('vim-airline/vim-airline')
   use('vim-airline/vim-airline-themes')
-  use('tweekmonster/gofmt.vim')
 
 end)
-
--- Old Vim Plugged
--- local Plug = vim.fn['plug#']
--- home = os.getenv("HOME")
---vim.call('plug#begin', home .. '/.config/nvim/plugged')
---Plug 'psf/black' -- Python Black auto formatter: https://github.com/psf/black/blob/main/plugin/black.vim
---Plug 'neovim/nvim-lspconfig' -- NeoVim LSP Plugin: https://github.com/neovim/nvim-lspconfig
---Plug 'tweekmonster/gofmt.vim' -- Automatic go formatter: https://github.com/tweekmonster/gofmt.vim
---Plug 'tpope/vim-fugitive' -- Vim plugin for Git: https://github.com/tpope/vim-fugitive
---Plug 'mbbill/undotree' -- Shows an undo tree: https://github.com/mbbill/undotree
---Plug 'sheerun/vim-polyglot' -- Vim language packs: https://github.com/sheerun/vim-polyglot
---Plug 'tpope/vim-dispatch' -- "Dispatches" compiler plugins: https://github.com/tpope/vim-dispatch
---Plug 'joshdick/onedark.vim' -- One Dark color theme: https://github.com/joshdick/onedark.vim
---Plug 'nvim-lua/popup.nvim' -- Api for popups: https://github.com/nvim-lua/popup.nvim
---Plug 'nvim-lua/plenary.nvim' -- Required by pop.nvim
---Plug 'nvim-telescope/telescope.nvim' -- Awesome fuzzy finder: https://github.com/nvim-telescope/telescope.nvim
---Plug ('nvim-treesitter/nvim-treesitter', {['do'] = ':TSUpdate'})  -- We recommend updating the parsers on update
---Plug 'windwp/nvim-autopairs' -- Automatically completes pairs and integrates with coq_vim: https://github.com/windwp/nvim-autopairs
---Plug 'vim-airline/vim-airline' -- Status line for VIM: https://github.com/vim-airline/vim-airline
---Plug 'vim-airline/vim-airline-themes' -- Themes for the above
---Plug 'rust-lang/rust.vim' -- Rust file detection and syntax highlighting: https://github.com/rust-lang/rust.vim
---Plug 'tomlion/vim-solidity' -- Syntax for solidity: https://github.com/tomlion/vim-solidity
