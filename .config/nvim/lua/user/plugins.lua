@@ -13,10 +13,13 @@ return require('packer').startup(function(use)
   use('nvim-treesitter/playground')
   use('theprimeagen/harpoon')
 
-  use {
-  'nvim-telescope/telescope.nvim', tag = '0.1.0',
-  requires = { {'nvim-lua/plenary.nvim'} }
-  }
+  use('nvim-lua/plenary.nvim')
+  use{'nvim-telescope/telescope.nvim', tag = '0.1.0'}
+
+  -- use {
+  --     'nvim-telescope/telescope.nvim', tag = '0.1.0',
+  --     requires = { {'nvim-lua/plenary.nvim'} }
+  -- }
 
   use {
 	  'VonHeikemen/lsp-zero.nvim',
