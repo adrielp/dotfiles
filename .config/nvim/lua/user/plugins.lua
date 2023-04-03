@@ -12,7 +12,8 @@ return require('packer').startup(function(use)
   use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
   use('nvim-treesitter/playground')
   use('theprimeagen/harpoon')
-  use{'fatih/vim-go', tag = 'v1.28'}
+  -- use{'fatih/vim-go', tag = 'v1.28'}
+  use{'darrikonn/vim-gofmt', run = ':GoUpdateBinaries'}
   use {
       'nvim-telescope/telescope.nvim', tag = '0.1.0',
       requires = { {'nvim-lua/plenary.nvim'} }

@@ -14,6 +14,13 @@ local keymap = vim.api.nvim_set_keymap
 --   term_mode = "t",
 --   command_mode = "c",
 
+-- Awesome keymaps from theprimeagen
+vim.keymap.set("x", "<leader>p", [["_dP]])
+vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
+vim.keymap.set("n", "<leader>Y", [["+Y]])
+vim.keymap.set({"n", "v"}, "<leader>d", [["+d]])
+vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
+
 -- Misc Remaps
 keymap("i", "<C-c>", "<esc>", opts)
 keymap("n", "<leader>u", ":UndotreeShow<cr>", opts)
@@ -24,13 +31,8 @@ keymap("n", "<leader>n", ":Ex<cr>", opts)
 keymap("n", "<C-d", "<C-d>zz", opts)
 keymap("n", "<C-u", "<C-u>zz", opts)
 
--- Awesome keymaps from theprimeagen
-vim.keymap.set("x", "<leader>p", [["_dP]])
-vim.keymap.set({"n", "v"}, "<leader>y", [["+y]])
-vim.keymap.set("n", "<leader>Y", [["+Y]])
-vim.keymap.set({"n", "v"}, "<leader>d", [["+d]])
-vim.keymap.set("n", "<leader>x", "<cmd>!chmod +x %<CR>", { silent = true })
-
+-- spawns copilot from the given line
+keymap("n", "<leader>cop", ":Copilot panel<cr>", opts)
 
 -- Navigation Remaps
 keymap("n", "<leader>h", ":wincmd h<cr>", opts)

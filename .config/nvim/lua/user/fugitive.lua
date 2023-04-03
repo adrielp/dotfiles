@@ -31,7 +31,8 @@ autocmd("BufWinEnter", {
             vim.cmd.Git({'commit'})
         end, opts)
 
-        vim.keymap.set("n", "<leader>gca", ":G commit --amend --no-edit", opts)
+        vim.keymap.set("n", "<leader>gca", ":G commit --amend", opts)
+        vim.keymap.set("n", "<leader>gcan", ":G commit --amend --no-edit", opts)
         vim.keymap.set("n", "<leader>t", ":Git push -u origin ", opts)
 
     end,
