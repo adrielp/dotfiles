@@ -8,7 +8,6 @@ require'nvim-treesitter.configs'.setup {
       "go",
       "gomod",
       "hcl",
-      "help",
       "hjson",
       "javascript",
       "lua",

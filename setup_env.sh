@@ -85,7 +85,7 @@ nvim_setup() {
     # Install Plugins
     #nvim -c 'PlugInstall --sync' +qall
     #nvim -c 'PlugUpdate --sync' +qall
-    #nvim -c 'TSUpdate' +qall
+    nvim -c 'TSUpdate' +qall
 
     # nvim coq command if running coq
     #nvim -c 'COQdeps' +qall
