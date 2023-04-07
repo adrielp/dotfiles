@@ -8,14 +8,17 @@ return require('packer').startup(function(use)
   -- Essentials
   use('tpope/vim-fugitive')
   use('mbbill/undotree')
-  use('windwp/nvim-autopairs')
+
+  -- auto pairs of () {} "" etc
+  use({
+      'windwp/nvim-autopairs',
+  })
   use({'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'})
   use('nvim-treesitter/playground')
   use('theprimeagen/harpoon')
-  -- use{'fatih/vim-go', tag = 'v1.28'}
   use{'darrikonn/vim-gofmt', run = ':GoUpdateBinaries'}
   use {
-      'nvim-telescope/telescope.nvim', tag = '0.1.0',
+      'nvim-telescope/telescope.nvim', tag = '0.1.1',
       requires = { {'nvim-lua/plenary.nvim'} }
   }
 
@@ -57,13 +60,21 @@ return require('packer').startup(function(use)
   --     }
   -- })
 
+  -- themes
   use({
-    'rose-pine/neovim',
-    as = 'rose-pine',
-    config = function()
-        vim.cmd('colorscheme rose-pine')
-    end
+      "catppuccin/nvim",
+      as = "catppuccin",
+      config = function()
+          vim.cmd('colorscheme catppuccin-mocha')
+      end
   })
+  -- use({
+  --   'rose-pine/neovim',
+  --   as = 'rose-pine',
+  --   config = function()
+  --       vim.cmd('colorscheme rose-pine')
+  --   end
+  -- })
   use('vim-airline/vim-airline')
   use('vim-airline/vim-airline-themes')
   use('mfussenegger/nvim-dap')

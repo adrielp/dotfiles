@@ -7,15 +7,15 @@
 
 vim.g.mapleader = " "
 
-require "user.plugins"
-require "user.settings"
-require "user.keymaps"
-require "user.harpoon"
-require "user.fugitive"
-require "user.lsp"
-require "user.treesitter"
-require "user.terra_fmt"
-require('nvim-autopairs').setup{}
+-- require "user.plugins"
+-- require "user.settings"
+-- require "user.keymaps"
+-- require "user.harpoon"
+-- require "user.fugitive"
+-- require "user.lsp"
+-- require "user.treesitter"
+-- require "user.terra_fmt"
+-- require('nvim-autopairs').setup{}
 
 -- Extras
 -- require('telescope').load_extension('fzf')

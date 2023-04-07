@@ -23,7 +23,8 @@ local options =  {
     termguicolors = true,
     syntax = "on",
     completeopt = "menuone,noinsert,noselect",
-    background = "dark",
+    -- enable if you want a dark background, leaving commented out uses transparent from line 49
+    -- background = "dark",
 }
 
 for k, v in pairs(options) do
