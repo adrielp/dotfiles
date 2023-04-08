@@ -16,6 +16,6 @@ jobs:
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v3
         with:
-          tag_format: v{version}
+          tag_format: "v${version}"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
