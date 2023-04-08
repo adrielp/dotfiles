@@ -1,7 +1,7 @@
 -- This file leverages an auto command group to automatically format 
 -- Terraform and Terragrunt files ending in .hcl or .tf 
 -- Requires that Terragrunt & Terraform are both installed locally
--- and requires the plenary.nvim lua package installed via packer
+-- and requires the plenary.nvim lua package installed
 
 local Job = require('plenary.job')
 

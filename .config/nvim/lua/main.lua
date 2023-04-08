@@ -6,7 +6,10 @@
 --  /__/        \__\ |__|          https://www.youtube.com/channel/UCMvC5sEUUx4U5CsM24Egmhg
 
 vim.g.mapleader = " "
+-- vim.cmd("hi Normal guibg=NONE ctermbg=NONE")
 
+require 'core'
+-- require 'plugins'
 -- require "user.plugins"
 -- require "user.settings"
 -- require "user.keymaps"
