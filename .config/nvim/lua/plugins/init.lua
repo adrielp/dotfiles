@@ -93,7 +93,10 @@ local plugs = {
 	    vim.o.timeoutlen = 300
 	    require("which-key").setup(opts)
 	  end,
-	}
+	},
+    {
+        "darrikonn/vim-gofmt",
+    }
 
 	-- Other Optionals
 	-- 'vim-airline/vim-airline-themes',
