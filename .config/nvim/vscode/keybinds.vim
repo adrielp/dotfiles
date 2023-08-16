@@ -8,7 +8,6 @@
 let mapleader = " "
 
 set ignorecase
-set colorcolumn=80
 
 function! s:split(...) abort
     let direction = a:1
