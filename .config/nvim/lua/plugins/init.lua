@@ -95,7 +95,13 @@ local plugs = {
 	  end,
 	},
     {
-        "darrikonn/vim-gofmt",
+      "darrikonn/vim-gofmt",
+    },
+    {
+      "arnamak/stay-centered.nvim",
+       init = function()
+         require('stay-centered').setup{}
+       end
     }
 
 	-- Other Optionals
