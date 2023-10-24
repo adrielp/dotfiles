@@ -149,3 +149,5 @@ fi
 printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh" }}\x9c'
 
 eval "$(starship init zsh)"
+
+export EDITOR='nvim'
