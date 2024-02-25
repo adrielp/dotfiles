@@ -1,4 +1,3 @@
-tap 'homebrew/cask'
 tap "norwoodj/tap"
 tap "hashicorp/tap"
 tap "goreleaser/tap"
