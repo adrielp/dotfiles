@@ -103,7 +103,8 @@ local plugs = {
          require('stay-centered').setup{}
        end
     },
-    -- Simple, minimal Lazy.nvim configuration
+    -- See the docs for more information
+    -- https://github.com/huynle/ogpt.nvim
     {
       "huynle/ogpt.nvim",
         event = "VeryLazy",
