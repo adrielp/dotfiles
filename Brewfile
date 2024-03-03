@@ -74,6 +74,7 @@ cask "warp"
 cask "notion"
 cask "yubico-yubikey-manager"
 cask "vivaldi"
+cask "obsidian"
 
 # Optional apps you can have installed
 # Some are replacements for others like: docker -> rancher
