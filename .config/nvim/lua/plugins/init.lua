@@ -123,7 +123,6 @@ local plugs = {
           "nvim-telescope/telescope.nvim"
         }
     },
-    }
 
 	-- Other Optionals
 	-- 'vim-airline/vim-airline-themes',

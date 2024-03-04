@@ -22,7 +22,7 @@ brew "gcc"
 brew "git"
 brew "gnupg"
 brew "go"
-brew "goreleaser"
+brew "goreleaser-pro"
 brew "hugo"
 brew "helm"
 brew "jq"
@@ -75,6 +75,7 @@ cask "notion"
 cask "yubico-yubikey-manager"
 cask "vivaldi"
 cask "obsidian"
+cask "ngrok"
 
 # Optional apps you can have installed
 # Some are replacements for others like: docker -> rancher
