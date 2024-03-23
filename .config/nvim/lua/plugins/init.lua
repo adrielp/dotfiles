@@ -16,7 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 -- Plugins I use
 local plugs = {
 	-- Essential Plugins
-	'tpope/vim-fugitive',
+	--'tpope/vim-fugitive',
 	{
 	  'windwp/nvim-autopairs',
 	  init = function()
@@ -24,7 +24,14 @@ local plugs = {
 	  end
 	},
 	'mbbill/undotree',
-	'vim-airline/vim-airline',
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = {
+            'nvim-tree/nvim-web-devicons'
+        }
+
+    },
+	-- 'vim-airline/vim-airline',
 	'github/copilot.vim',
 	{
 		'nvim-treesitter/nvim-treesitter',
@@ -123,6 +130,16 @@ local plugs = {
           "nvim-telescope/telescope.nvim"
         }
     },
+    -- NeoGit, a replacement for Vim Fugitive
+    {
+        "NeogitOrg/neogit",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "sindrets/diffview.nvim", -- git diff integration
+            "nvim-telescope/telescope.nvim"
+        },
+        config = true
+    }
 
 	-- Other Optionals
 	-- 'vim-airline/vim-airline-themes',

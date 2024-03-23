@@ -42,12 +42,13 @@ wk.register({
 		s = { "<cmd>w<cr>", "  Save" },
 		q = { "<cmd>q<cr>", "  Quit" },
 		Q = { "<cmd>q!<cr>", "  Force Quit" },
+        a = { "<cmd>qa<cr>", "   Quit All" },
 	},
 	g = {
 		name = "۸ Git & </> LSP",
 		b = { "<cmd>Telescope git_branches<cr>", " Git Branches" },
 		c = { "<cmd>Telescope git_commits<cr>", "  Git Commits" },
-		s = { vim.cmd.Git, "  Git Status" },
+		s = { "<cmd>Neogit<cr>", "  Git Status" },
 	},
 }, {prefix = "<leader>"})
 
