@@ -139,23 +139,11 @@ local plugs = {
             "nvim-telescope/telescope.nvim"
         },
         config = true
+    },
+    -- Lua
+    {
+      "folke/zen-mode.nvim",
     }
-
-	-- Other Optionals
-	-- 'vim-airline/vim-airline-themes',
-	-- 'mfussenegger/nvim-dap'
-	-- {
-	-- 'darrikonn/vim-gofmt'
-	-- run = ':GoUpdateBinaries'
-	-- }
-	-- {
-	-- 'rose-pine/neovim',
-	-- name = 'rose-pine',
-	-- init = function()
-	-- vim.cmd.colorscheme('rose-pine')
-	-- end
-	-- }
-
 }
 
 -- can add opts to .setup(plugs) 
