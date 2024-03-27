@@ -115,6 +115,9 @@ alias v="nvim"
 alias tf="terraform"
 alias tg="terragrunt"
 
+# ranger
+alias rr="ranger"
+
 # Kubectl completion
 source <(kubectl completion zsh)
 
