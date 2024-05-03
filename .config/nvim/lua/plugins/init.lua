@@ -143,7 +143,13 @@ local plugs = {
     -- Lua
     {
       "folke/zen-mode.nvim",
-    }
+    },
+     {
+       "numToStr/Comment.nvim",
+        config = function()
+          require ('Comment').setup()
+        end,
+     }
 }
 
 -- can add opts to .setup(plugs) 
