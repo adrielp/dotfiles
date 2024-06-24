@@ -33,6 +33,7 @@ local options = {
 local wk = require("which-key")
 
 wk.register({
+    n = {"<cmd>Oil<cr>", "  Open Oil"},
 	f = {
 		name = "  File",
 		f = { "<cmd>Telescope find_files<cr>", "  Find File" },

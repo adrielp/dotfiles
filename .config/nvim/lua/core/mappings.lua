@@ -27,7 +27,7 @@ keymap("n", "<leader>u", ":UndotreeShow<cr>", opts)
 keymap("n", "<leader>C", ":let @/ = ''<cr>", opts)
 keymap("n", "<leader>so", ":so %<cr>", opts)
 keymap("t", "<esc>", "<c-\\><C-n>", term_opts)
-keymap("n", "<leader>n", ":Ex<cr>", opts)
+-- keymap("n", "<leader>n", ":Ex<cr>", opts)
 -- keymap("n", "<C-d", "<C-d>zz", opts)
 -- keymap("n", "<C-u", "<C-u>zz", opts)
 
