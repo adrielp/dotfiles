@@ -31,7 +31,6 @@ local plugs = {
         }
 
     },
-    -- 'vim-airline/vim-airline',
     'github/copilot.vim',
     {
         'nvim-treesitter/nvim-treesitter',
@@ -91,15 +90,22 @@ local plugs = {
     },
     -- Only load whichkey after all the gui
     {
-        "folke/which-key.nvim",
-        opts = function()
-            return require ('plugins.config.whichkey')
-        end,
-        config = function(_, opts)
-            vim.o.timeout = true
-            vim.o.timeoutlen = 300
-            require("which-key").setup(opts)
-        end,
+      "folke/which-key.nvim",
+      event = "VeryLazy",
+      opts = {
+        -- your configuration comes here
+        -- or leave it empty to use the default settings
+        -- refer to the configuration section below
+      },
+      keys = {
+        {
+          "<leader>?",
+          function()
+            require("which-key").show({ global = false })
+          end,
+          desc = "Buffer Local Keymaps (which-key)",
+        },
+      },
     },
     {
         "darrikonn/vim-gofmt",
@@ -110,26 +116,6 @@ local plugs = {
             require('stay-centered').setup{}
         end
     },
-    -- See the docs for more information
-    -- https://github.com/huynle/ogpt.nvim
-    -- {
-    --     "huynle/ogpt.nvim",
-    --     event = "VeryLazy",
-    --     opts = {
-    --         default_provider = "ollama",
-    --         providers = {
-    --             ollama = {
-    --                 api_host = os.getenv("OLLAMA_API_HOST") or "http://localhost:11434",
-    --                 api_key = os.getenv("OLLAMA_API_KEY") or "",
-    --             }
-    --         }
-    --     },
-    --     dependencies = {
-    --         "MunifTanjim/nui.nvim",
-    --         "nvim-lua/plenary.nvim",
-    --         "nvim-telescope/telescope.nvim"
-    --     }
-    -- },
     -- NeoGit, a replacement for Vim Fugitive
     {
         "NeogitOrg/neogit",
@@ -185,6 +171,26 @@ local plugs = {
             debug = false -- Prints errors and the command which is run.
         }
     }
+    -- See the docs for more information
+    -- https://github.com/huynle/ogpt.nvim
+    -- {
+    --     "huynle/ogpt.nvim",
+    --     event = "VeryLazy",
+    --     opts = {
+    --         default_provider = "ollama",
+    --         providers = {
+    --             ollama = {
+    --                 api_host = os.getenv("OLLAMA_API_HOST") or "http://localhost:11434",
+    --                 api_key = os.getenv("OLLAMA_API_KEY") or "",
+    --             }
+    --         }
+    --     },
+    --     dependencies = {
+    --         "MunifTanjim/nui.nvim",
+    --         "nvim-lua/plenary.nvim",
+    --         "nvim-telescope/telescope.nvim"
+    --     }
+    -- },
 }
 
 -- can add opts to .setup(plugs) 
