@@ -13,16 +13,18 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Plugins I use
+-- Plugins
 local plugs = {
     -- Essential Plugins
-    --'tpope/vim-fugitive',
     {
         'windwp/nvim-autopairs',
+        event = "InsertEnter",
         init = function()
             require('nvim-autopairs').setup{}
         end
     },
+    -- May revisit and try jiaoshijie/undotree instead, but mbbill/undotree
+    -- seems more maintained currently, even though it's vimscript
     'mbbill/undotree',
     {
         'nvim-lualine/lualine.nvim',
@@ -31,12 +33,12 @@ local plugs = {
         }
 
     },
+    -- TODO: Replace with local LLM or something better than CoPilot.
     'github/copilot.vim',
     {
         'nvim-treesitter/nvim-treesitter',
         build = ':TSUpdate'
     },
-
     {'nvim-treesitter/playground'},
     'theprimeagen/harpoon',
     {
@@ -47,17 +49,15 @@ local plugs = {
     },
     -- Theme
     {
-        'catppuccin/nvim',
-        name = 'catppuccin',
+        "scottmckendry/cyberdream.nvim",
         lazy = false,
         priority = 1000,
-        opts = {
-            transparent_background = true
-        },
         init = function()
-            vim.cmd.colorscheme 'catppuccin-mocha'
+            vim.cmd.colorscheme 'cyberdream'
         end
     },
+    -- TODO: Re-evaluate config
+    -- Development of this plugin stopped, now it's all NVIM native
     -- LSP
     {
         'VonHeikemen/lsp-zero.nvim',
@@ -68,8 +68,6 @@ local plugs = {
             {
                 'williamboman/mason.nvim',
                 build = function()
-                    -- vim.cmd 'MasonUpdate'
-                    -- vim.cmd, 'MasonUpdate'
                     pcall(vim.cmd, 'MasonUpdate')
                 end,
             },
@@ -107,16 +105,18 @@ local plugs = {
         },
       },
     },
+    -- TODO: Re-evaluate config
+    -- Might want to just re-implement myself, or add autocommands
     {
         "darrikonn/vim-gofmt",
     },
+    -- TODO: It's just an autocmd, re-implement myself to reduce plugin count
     {
         "arnamak/stay-centered.nvim",
         init = function()
             require('stay-centered').setup{}
         end
     },
-    -- NeoGit, a replacement for Vim Fugitive
     {
         "NeogitOrg/neogit",
         dependencies = {
@@ -125,10 +125,6 @@ local plugs = {
             "nvim-telescope/telescope.nvim"
         },
         config = true
-    },
-    -- Lua
-    {
-        "folke/zen-mode.nvim",
     },
     {
         "numToStr/Comment.nvim",
@@ -145,6 +141,7 @@ local plugs = {
             require('oil').setup{}
         end
     },
+    -- TODO: Re-evaluate config eventually
     {
         'David-Kunz/gen.nvim',
             opts = {
@@ -170,27 +167,34 @@ local plugs = {
             no_auto_close = false, -- Never closes the window automatically.
             debug = false -- Prints errors and the command which is run.
         }
+    },
+    -- TODO: Re-evaluate config - not sure I'm ready to use it yet
+    {
+        "folke/snacks.nvim",
+        priority = 1000,
+        lazy = false,
+        ---@type snacks.Config
+        opts = {
+            -- dim = { enabled = true },
+            dashboard = { enabled = true },
+            indent = { enabled = true },
+            statuscolumn = { enabled = true },
+            zen = { enabled = true },
+            -- words = { enabled = true },
+        },
+    },
+    {
+        'MeanderingProgrammer/render-markdown.nvim',
+        dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.nvim' }, -- if you use the mini.nvim suite
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'echasnovski/mini.icons' }, -- if you use standalone mini plugins
+        -- dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+        ---@module 'render-markdown'
+        ---@type render.md.UserConfig
+        opts = {},
+    },
+    {
+        'mfussenegger/nvim-dap'
     }
-    -- See the docs for more information
-    -- https://github.com/huynle/ogpt.nvim
-    -- {
-    --     "huynle/ogpt.nvim",
-    --     event = "VeryLazy",
-    --     opts = {
-    --         default_provider = "ollama",
-    --         providers = {
-    --             ollama = {
-    --                 api_host = os.getenv("OLLAMA_API_HOST") or "http://localhost:11434",
-    --                 api_key = os.getenv("OLLAMA_API_KEY") or "",
-    --             }
-    --         }
-    --     },
-    --     dependencies = {
-    --         "MunifTanjim/nui.nvim",
-    --         "nvim-lua/plenary.nvim",
-    --         "nvim-telescope/telescope.nvim"
-    --     }
-    -- },
 }
 
 -- can add opts to .setup(plugs) 
