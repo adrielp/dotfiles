@@ -7,4 +7,8 @@
 ^/Brewfile
 ^/Brewfile.*
 ^/.DS_Store
-^/.iterm-profile.json
+^/iterm-profile.json
+^/renovate.json
+^/.tmux.conf
+^/.releaserc.yaml
+^/.github

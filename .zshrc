@@ -106,11 +106,9 @@ source $ZSH/oh-my-zsh.sh
 #
 # Aliases that I use
 alias ll="ls -al"
-alias reload="source ~/.zshrc" 
+alias reload="source ~/.zshrc"
 alias vim="nvim"
 alias k="kubectl"
-#alias docker="nerdctl"
-#alias n="nerdctl"
 alias v="nvim"
 alias tf="terraform"
 alias tg="terragrunt"
@@ -134,10 +132,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 #If you come from bash you might have to change your $PATH.
 export PATH=$HOME/go/bin:$PATH
 
-### MANAGED BY RANCHER DESKTOP START (DO NOT EDIT)
-export PATH="/Users/adrielperkins/.rd/bin:$PATH"
-### MANAGED BY RANCHER DESKTOP END (DO NOT EDIT)
-
 # if you want to load extra zshrc files to source additional config then create
 # a $HOME/ext-config directory and add files ending in .zsrch for this to source them
 if [[ -d $HOME/ext-config/ ]]
@@ -151,7 +145,6 @@ fi
 # WARPify always according to warp docs
 printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh" }}\x9c'
 
-eval "$(starship init zsh)"
 
 export EDITOR='nvim'
 
@@ -160,3 +153,6 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 
 # export PATH="/opt/homebrew/opt/go@1.22/bin:$PATH"
+
+# The last thing to do
+eval "$(starship init zsh)"
