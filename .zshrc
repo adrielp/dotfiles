@@ -112,6 +112,13 @@ alias k="kubectl"
 alias v="nvim"
 alias tf="terraform"
 alias tg="terragrunt"
+alias za="zellij a main"
+alias zs="zellij -s main"
+alias gs="git status"
+alias gcm="git checkout main && git pull"
+alias gcr="git checkout main && git reset --hard origin/main"
+alias zd="zed ."
+
 
 # ranger
 alias rr="ranger"
