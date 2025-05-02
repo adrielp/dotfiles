@@ -23,6 +23,9 @@ local options =  {
     termguicolors = true,
     syntax = "on",
     completeopt = "menuone,noinsert,noselect",
+    textwidth = 80,
+    spell = true,
+    spelllang = "en_us",
     -- enable if you want a dark background, leaving commented out uses transparent from line 49
     -- background = "dark",
 }

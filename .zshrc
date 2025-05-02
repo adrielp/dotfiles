@@ -118,6 +118,8 @@ alias gs="git status"
 alias gcm="git checkout main && git pull"
 alias gcr="git checkout main && git reset --hard origin/main"
 alias zd="zed ."
+alias cl="clear"
+alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
 
 # ranger
@@ -138,6 +140,7 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 #If you come from bash you might have to change your $PATH.
 export PATH=$HOME/go/bin:$PATH
+export PATH=$HOME/neovim/bin:$PATH
 
 # if you want to load extra zshrc files to source additional config then create
 # a $HOME/ext-config directory and add files ending in .zsrch for this to source them

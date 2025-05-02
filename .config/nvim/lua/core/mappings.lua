@@ -33,7 +33,7 @@ keymap("n", "<leader>n", ":Oil<cr>", opts)
 -- keymap("n", "<C-u", "<C-u>zz", opts)
 
 -- spawns copilot from the given line
-keymap("n", "<leader>cop", ":Copilot panel<cr>", opts)
+-- keymap("n", "<leader>cop", ":Copilot panel<cr>", opts)
 
 -- Navigation Remaps
 keymap("n", "<leader>h", ":wincmd h<cr>", opts)
@@ -76,4 +76,6 @@ wk.add({
     {"<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Git Branches"},
     {"<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Git Commits"},
     {"<leader>gs", "<cmd>Neogit<cr>", desc = "Git Status"},
+    {"<leader>co", "<cmd>CodeCompanionChat<cr>", desc = "Code Companion Chat"},
+    {"<leader>fmt", "<cmd>set formatprg=<cr>", desc = "Reset formatter"},
 })
