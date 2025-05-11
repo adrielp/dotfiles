@@ -1,4 +1,5 @@
 -- lazy plugin configuration
+--
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -15,134 +16,32 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Plugins
 local plugs = {
+    -- =========================================================================
     -- Essential Plugins
+    -- =========================================================================
     {
-        'windwp/nvim-autopairs',
-        event = "InsertEnter",
+        -- Docs: https://github.com/neovim/nvim-lspconfig
+        -- Data only plugin
+        'neovim/nvim-lspconfig',
+    },
+    {
+        -- Docs: https://github.com/echasnovski/mini.nvim
+        'echasnovski/mini.nvim', version = '*',
         init = function()
-            require('nvim-autopairs').setup{}
-        end
-    },
-    -- May revisit and try jiaoshijie/undotree instead, but mbbill/undotree
-    -- seems more maintained currently, even though it's vimscript
-    'mbbill/undotree',
-    {
-        'nvim-lualine/lualine.nvim',
-        dependencies = {
-            'nvim-tree/nvim-web-devicons'
-        }
-
-    },
-    -- TODO: Replace with local LLM or something better than CoPilot.
-    'github/copilot.vim',
-    {
-        'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate'
-    },
-    {'nvim-treesitter/playground'},
-    'theprimeagen/harpoon',
-    {
-        'nvim-telescope/telescope.nvim',
-        dependencies = {
-            'nvim-lua/plenary.nvim'
-        }
-    },
-    -- Theme
-    {
-        "scottmckendry/cyberdream.nvim",
-        lazy = false,
-        priority = 1000,
-        init = function()
-            vim.cmd.colorscheme 'cyberdream'
-        end
-    },
-    -- TODO: Re-evaluate config
-    -- Development of this plugin stopped, now it's all NVIM native
-    -- LSP
-    {
-        'VonHeikemen/lsp-zero.nvim',
-        branch = 'v2.x',
-        dependencies = {
-            -- LSP Support
-            {'neovim/nvim-lspconfig'},
-            {
-                'williamboman/mason.nvim',
-                build = function()
-                    pcall(vim.cmd, 'MasonUpdate')
-                end,
-            },
-            {'williamboman/mason-lspconfig.nvim'},
-
-            -- Autocompletion
-            {'hrsh7th/nvim-cmp'},
-            {'hrsh7th/cmp-nvim-lsp'},
-            {'L3MON4D3/LuaSnip'}
-
-            -- Optionals
-            -- {'hrsh7th/cmp-buffer'},
-            -- {'hrsh7th/cmp-path'},
-            -- {'saadparwaiz1/cmp_luasnip'},
-            -- {'hrsh7th/cmp-nvim-lua'},
-            -- {'rafamadriz/friendly-snippets'},
-        }
-    },
-    -- Only load whichkey after all the gui
-    {
-      "folke/which-key.nvim",
-      event = "VeryLazy",
-      opts = {
-        -- your configuration comes here
-        -- or leave it empty to use the default settings
-        -- refer to the configuration section below
-      },
-      keys = {
-        {
-          "<leader>?",
-          function()
-            require("which-key").show({ global = false })
-          end,
-          desc = "Buffer Local Keymaps (which-key)",
-        },
-      },
-    },
-    -- TODO: Re-evaluate config
-    -- Might want to just re-implement myself, or add autocommands
-    {
-        "darrikonn/vim-gofmt",
-    },
-    -- TODO: It's just an autocmd, re-implement myself to reduce plugin count
-    {
-        "arnamak/stay-centered.nvim",
-        init = function()
-            require('stay-centered').setup{}
-        end
-    },
-    {
-        "NeogitOrg/neogit",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "sindrets/diffview.nvim", -- git diff integration
-            "nvim-telescope/telescope.nvim"
-        },
-        config = true
-    },
-    {
-        "numToStr/Comment.nvim",
-        config = function()
-            require ('Comment').setup()
+            -- Docs: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-icons.md
+            require('mini.icons').setup()
+            -- Docs: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-snippets.md
+            require('mini.snippets').setup()
+            -- Docs: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-pairs.md
+            require('mini.pairs').setup()
+            -- Docs: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-comment.md
+            require('mini.comment').setup()
+            -- Docs: https://github.com/echasnovski/mini.nvim/blob/main/readmes/mini-completion.md
+            require('mini.completion').setup()
         end,
     },
     {
-        'stevearc/oil.nvim',
-        -- opts = {},
-        -- Optional dependencies
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-        init = function()
-            require('oil').setup{}
-        end
-    },
-    -- TODO: Re-evaluate config - not sure I'm ready to use it yet
-    {
+        -- Docs: https://github.com/folke/snacks.nvim
         "folke/snacks.nvim",
         priority = 1000,
         lazy = false,
@@ -153,8 +52,112 @@ local plugs = {
             indent = { enabled = true },
             statuscolumn = { enabled = true },
             zen = { enabled = true },
+            terminal = { enabled = true },
+            lazygit = { enabled = true },
+            -- git = { enabled = true },
+            -- gitbrowse = { enabled = true },
+            -- explorer = { enabled = true }, -- TODO: Replace oil w/ this
+            -- later.
             -- words = { enabled = true },
         },
+    },
+    {
+        -- Docs: https://github.com/mbbill/undotree
+        -- Note: mbbill is vimscript, but actively maintained
+        'mbbill/undotree',
+    },
+    {
+        -- Docs: https://github.com/nvim-lualine/lualine.nvim
+        -- TODO: Adjust default config to be more practical for my use cases
+        'nvim-lualine/lualine.nvim',
+        dependencies = {
+            'nvim-tree/nvim-web-devicons'
+        }
+    },
+    {
+        -- Docs: https://github.com/nvim-treesitter/nvim-treesitter
+        'nvim-treesitter/nvim-treesitter',
+        build = ':TSUpdate',
+        dependencies = {
+            'nvim-treesitter/playground'
+        }
+    },
+    {
+        -- Docs: https://github.com/darrikonn/vim-gofmt
+        -- Minimal version of vim-go
+        -- TODO: Replace with native autocommands
+        "darrikonn/vim-gofmt",
+    },
+    {
+        -- Docs: https://github.com/ThePrimeagen/harpoon/tree/harpoon2
+        'theprimeagen/harpoon',
+        branch = "harpoon2",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        init = function()
+            require('harpoon').setup()
+        end,
+    },
+    {
+        'nvim-telescope/telescope.nvim',
+        dependencies = {
+            'nvim-lua/plenary.nvim'
+        }
+    },
+    -- =========================================================================
+    -- Theme/Styling Related Plugins
+    -- =========================================================================
+    {
+        "scottmckendry/cyberdream.nvim",
+        lazy = false,
+        priority = 1000,
+        init = function()
+            vim.cmd.colorscheme 'cyberdream'
+        end
+    },
+    {
+        -- Docs: https://github.com/folke/which-key.nvim
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        opts = {},
+        keys = {
+            {
+                "<leader>?",
+                function()
+                    require("which-key").show({ global = false })
+                end,
+                desc = "Buffer Local Keymaps (which-key)",
+            },
+        },
+    },
+    {
+        -- Docs: https://github.com/arnamak/stay-centered.nvim
+        -- TODO: Replace with native autocommands
+        "arnamak/stay-centered.nvim",
+        init = function()
+            require('stay-centered').setup{}
+        end
+    },
+    -- {
+    --     -- Docs: https://github.com/NeogitOrg/neogit
+    --     "NeogitOrg/neogit",
+    --     init = function()
+    --         require('neogit').setup()
+    --     end,
+    --     dependencies = {
+    --         "nvim-lua/plenary.nvim",
+    --         "sindrets/diffview.nvim", -- git diff integration
+    --         "nvim-telescope/telescope.nvim"
+    --     },
+    --     config = true
+    -- },
+    {
+        'stevearc/oil.nvim',
+        -- opts = {},
+        -- Optional dependencies
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+        init = function()
+            require('oil').setup{}
+        end
     },
     {
         'MeanderingProgrammer/render-markdown.nvim',
@@ -165,25 +168,156 @@ local plugs = {
         ---@type render.md.UserConfig
         opts = {},
     },
+    -- =========================================================================
+    -- LSP Related Plugins
+    -- =========================================================================
     {
+        -- Docs: https://github.com/mason-org/mason.nvim
+        'williamboman/mason.nvim',
+        init = function()
+            require("mason").setup()
+        end,
+        build = function()
+            pcall(vim.cmd, 'MasonUpdate')
+        end,
+        dependencies = {
+            {'williamboman/mason-lspconfig.nvim'},
+        },
+    },
+    {
+        -- Docs: https://github.com/mfussenegger/nvim-dap
         'mfussenegger/nvim-dap'
     },
+    -- Things seem to be properly working now.
+    -- In the future, I may want to revisit the following plugins
+    -- hrsh7th/cmp-nvim-lsp
+    -- hrsh7th/cmp-buffer
+    -- hrsh7th/cmp-path
+    -- hrsh7th/cmp-cmdline
+    -- hrsh7th/nvim-cmp
+    -- L3MON4D3/LuaSnip
+    -- rafamadriz/friendly-snippets
+    -- VonHeikemen/lsp-zero.nvim (which is no longer supported in nvim 0.11.0+)
+    -- =========================================================================
+    -- AI Related Plugins
+    -- =========================================================================
+    -- Enable if using copilot w/ codecompanion
+    -- {'github/copilot.vim'},
     {
         'olimorris/codecompanion.nvim',
         dependencies = {
-            'j-hui/fidget.nvim'
+            'j-hui/fidget.nvim',
+            'nvim-lua/plenary.nvim',
+            'nvim-treesitter/nvim-treesitter',
+            'nvim-telescope/telescope.nvim'
+
         },
         opts = {
+            -- system_prompt = function(opts)
+            --     return ""
+            -- end,
+            strategies = {
+                chat = {
+                    adapter = "anthropic",
+                },
+                inline = {
+                    adapter = "anthropic",
+                },
+                cmd = {
+                    adapter = "anthropic",
+                }
+            },
             adapters = {
-                copilot = function()
-                    return require("codecompanion.adapters").extend("copilot", {
+                anthropic = function()
+                    return require("codecompanion.adapters").extend("anthropic", {
+                        env = {
+                            api_key = "cmd:op read op://Private/AnthropicAPI/credential --no-newline"
+                        },
                         schema = {
                             model = {
-                                default = "claude-3.7-sonnet",
+                                default = "claude-3-7-sonnet-20250219",
                             },
                         },
                     })
-                end
+                    end
+                    -- return require("codecompanion.adapters").extend("openai_compatible", {
+                    -- env = {
+                    --   url = "http://192.168.1.164:1234", -- optional: default value is ollama url http://127.0.0.1:11434
+                    --   -- api_key = "OpenAI_API_KEY", -- optional: if your endpoint is authenticated
+                    --   chat_url = "/v1/chat/completions", -- optional: default value, override if different
+                    --   models_endpoint = "/v1/models", -- optional: attaches to the end of the URL to form the endpoint to retrieve models
+                    -- },
+                    -- schema = {
+                    --   model = {
+                    --     default = "zeta",  -- define llm model to be used
+                    --   },
+                      -- temperature = {
+                      --   order = 2,
+                      --   mapping = "parameters",
+                      --   type = "number",
+                      --   optional = true,
+                      --   default = 0.4,
+                      --   desc = "What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. We generally recommend altering this or top_p but not both.",
+                      --   validate = function(n)
+                      --     return n >= 0 and n <= 2, "Must be between 0 and 2"
+                      --   end,
+                      -- },
+                      -- max_completion_tokens = {
+                      --   order = 3,
+                      --   mapping = "parameters",
+                      --   type = "integer",
+                      --   optional = true,
+                      --   default = nil,
+                      --   desc = "An upper bound for the number of tokens that can be generated for a completion.",
+                      --   validate = function(n)
+                      --     return n > 0, "Must be greater than 0"
+                      --   end,
+                      -- },
+                      -- stop = {
+                      --   order = 4,
+                      --   mapping = "parameters",
+                      --   type = "string",
+                      --   optional = true,
+                      --   default = nil,
+                      --   desc = "Sets the stop sequences to use. When this pattern is encountered the LLM will stop generating text and return. Multiple stop patterns may be set by specifying multiple separate stop parameters in a modelfile.",
+                      --   validate = function(s)
+                      --     return s:len() > 0, "Cannot be an empty string"
+                      --   end,
+                      -- },
+                      -- logit_bias = {
+                      --   order = 5,
+                      --   mapping = "parameters",
+                      --   type = "map",
+                      --   optional = true,
+                      --   default = nil,
+                      --   desc = "Modify the likelihood of specified tokens appearing in the completion. Maps tokens (specified by their token ID) to an associated bias value from -100 to 100. Use https://platform.openai.com/tokenizer to find token IDs.",
+                      --   subtype_key = {
+                      --     type = "integer",
+                      --   },
+                      --   subtype = {
+                      --     type = "integer",
+                      --     validate = function(n)
+                      --       return n >= -100 and n <= 100, "Must be between -100 and 100"
+                      --     end,
+                      --   },
+                      -- },
+                  --   },
+                  -- })
+                -- end,
+                -- return require("codecompanion.adapters").extend("gemini", {
+                --     env = {
+                --         api_key = "cmd:op read op://Private/GeminiAPIKey/credential --no-newline"
+                --     },
+                -- })
+		        -- end
+                --     return require("codecompanion.adapters").extend("copilot", {
+                --         schema = {
+                --             model = {
+                --                 default = "claude-3.7-sonnet",
+                --             },
+                --         },
+                --     })
+                -- end
             },
         },
     }

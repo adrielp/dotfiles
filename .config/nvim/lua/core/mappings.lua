@@ -75,7 +75,7 @@ wk.add({
     {"<leader>g", group = git},
     {"<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Git Branches"},
     {"<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Git Commits"},
-    {"<leader>gs", "<cmd>Neogit<cr>", desc = "Git Status"},
+    {"<leader>gs", function() Snacks.lazygit.open() end, desc = "Git Status"},
     {"<leader>co", "<cmd>CodeCompanionChat<cr>", desc = "Code Companion Chat"},
     {"<leader>fmt", "<cmd>set formatprg=<cr>", desc = "Reset formatter"},
 })

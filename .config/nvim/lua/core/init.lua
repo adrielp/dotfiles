@@ -12,7 +12,6 @@ require('core.mappings')
 -- load terraform formatter which requires plugins to be installed (plenary.nvim)
 require('core.terra_fmt')
 require('core.settings')
-require('core.lsp')
 require('core.harpoon')
 require('core.treesitter')
 require('core.lualine')
@@ -21,3 +20,5 @@ require('core.lualine')
 --require('core.fugitive')
 -- lazygit is currently empty of config
 -- require('core.lazygit')
+-- No longer using lsp-zero, but make take the keybinds later
+-- require('core.lsp')

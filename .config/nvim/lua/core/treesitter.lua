@@ -6,8 +6,13 @@ require'nvim-treesitter.configs'.setup {
       "gomod",
       "hcl",
       "hjson",
+      "lua",
       "make",
+      "markdown",
+      "markdown_inline",
+      "python",
       "regex",
+      "rust"
   },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)

@@ -8,3 +8,5 @@
 vim.g.mapleader = " "
 
 require 'core'
+-- TODO: Rewrite LSP
+require 'lsps'

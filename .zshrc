@@ -79,7 +79,7 @@ ZSH_DISABLE_COMPFIX="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
-plugins=(zsh-autosuggestions)
+# plugins=(zsh-autosuggestions)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -140,7 +140,8 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 #If you come from bash you might have to change your $PATH.
 export PATH=$HOME/go/bin:$PATH
-export PATH=$HOME/neovim/bin:$PATH
+# export PATH=$HOME/neovim/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # if you want to load extra zshrc files to source additional config then create
 # a $HOME/ext-config directory and add files ending in .zsrch for this to source them
@@ -165,4 +166,11 @@ export NVM_DIR="$HOME/.nvm"
 # export PATH="/opt/homebrew/opt/go@1.22/bin:$PATH"
 
 # The last thing to do
+eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(starship init zsh)"
+eval "$(/usr/libexec/path_helper)"
+
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+plugins=(zsh-autosuggestions)
+
+. "$HOME/.local/bin/env"

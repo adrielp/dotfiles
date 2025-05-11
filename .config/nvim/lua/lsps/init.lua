@@ -1,11 +1,7 @@
--- This file contains LSP (Language Server Protocol) configurations
-
--- local lsp = require('lsp-zero').preset({})
-
-lsp.on_attach(function(client, bufnr)
-  lsp.default_keymaps({buffer = bufnr})
-end)
-lsp.setup()
+-- vim.lsp.on_attach(function(client, bufnr)
+--   vim.lsp.default_keymaps({buffer = bufnr})
+-- end)
+-- vim.lsp.setup()
 
 -- LSP Specific Keymaps
 vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
@@ -32,3 +28,5 @@ wk.add({
     { "<leader><C-h>", vim.lsp.buf.signature_help, desc = "Signature Help" },
 })
 
+require('lsps.luals')
+require('lsps.gopls')

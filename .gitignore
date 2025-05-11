@@ -5,3 +5,6 @@ node_modules
 .config/nvim/plugin
 .config/nvim/undodir
 
+.config/op
+.config/Webull*
+.config/github-copilot
