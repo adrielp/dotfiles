@@ -75,3 +75,41 @@ To make sure `j k h l` run on hold, you need to run the following command on Mac
 `defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false`
 
 You can read more about this on [VSCodium/VIM's Readme](https://github.com/VSCodeVim/Vim/blob/master/README.md#mac-setup)
+
+## Git Configuration
+
+Here are some helpful links around git configuration. 
+
+* https://gist.github.com/edwhad/a25f728e6add3f6d1f7a483810e9d555
+* https://developer.1password.com/docs/ssh/agent/advanced/#use-multiple-github-accounts
+
+This is usually per-device, but I generally use 1Password to manage my SSH keys.
+When different SSH keys for different instances are necessary, I usually setup a
+directory structure for cloning repositories which map to my keys.
+
+
+My config ends up looking something like:
+
+```
+
+[user]
+	email = <my-email>
+	name = Adriel Perkins
+
+[includeIf "gitdir:~/path/to/some-org/"]
+    path = ~/path/to/some-org/.gitconfig
+
+```
+
+Then my `.gitconfig` in the `some-org` directory looks like:
+
+```
+[user]
+	email = <some other email>
+	name = Adriel Perkins
+
+[core]
+    ; Must point to public key for the 1Pass SSH Agent to handle private.
+    sshCommand = ssh -i ~/.ssh/some-org.pub
+
+```
