@@ -174,3 +174,4 @@ source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 plugins=(zsh-autosuggestions)
 
 . "$HOME/.local/bin/env"
+. "/Users/adriel/.deno/env"

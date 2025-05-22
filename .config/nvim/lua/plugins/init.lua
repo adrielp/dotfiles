@@ -204,6 +204,15 @@ local plugs = {
     -- Enable if using copilot w/ codecompanion
     -- {'github/copilot.vim'},
     {
+        'greggh/claude-code.nvim',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+        },
+        config = function()
+            require('claude-code').setup()
+        end,
+    },
+    {
         'olimorris/codecompanion.nvim',
         dependencies = {
             'j-hui/fidget.nvim',
@@ -235,7 +244,7 @@ local plugs = {
                         },
                         schema = {
                             model = {
-                                default = "claude-3-7-sonnet-20250219",
+                                default = "claude-opus-4-20250514",
                             },
                         },
                     })

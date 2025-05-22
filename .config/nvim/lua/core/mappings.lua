@@ -78,4 +78,11 @@ wk.add({
     {"<leader>gs", function() Snacks.lazygit.open() end, desc = "Git Status"},
     {"<leader>co", "<cmd>CodeCompanionChat<cr>", desc = "Code Companion Chat"},
     {"<leader>fmt", "<cmd>set formatprg=<cr>", desc = "Reset formatter"},
+    {"<leader>jq", "<cmd>%!jq .<cr>", desc = "Pretty format with jq"},
+    {"<leader>cc", "<cmd>ClaudeCode<cr>", desc = "Open Claude Code"},
+})
+
+wk.add({
+    mode = {"i"},
+    {"jj", "<Esc>", desc = "Escape"}
 })
