@@ -49,7 +49,7 @@ local plugs = {
         opts = {
             -- dim = { enabled = true },
             dashboard = { enabled = true },
-            indent = { enabled = true },
+            -- indent = { enabled = true }, -- As of 5/23/25 throws errors
             statuscolumn = { enabled = true },
             zen = { enabled = true },
             terminal = { enabled = true },
@@ -218,8 +218,18 @@ local plugs = {
             'j-hui/fidget.nvim',
             'nvim-lua/plenary.nvim',
             'nvim-treesitter/nvim-treesitter',
-            'nvim-telescope/telescope.nvim'
-
+            'nvim-telescope/telescope.nvim',
+            {
+                'saghen/blink.cmp',
+                lazy = false,
+                version = "*",
+                opts = {
+                    cmdline = { sources = {'cmdline' } },
+                    sources = {
+                        default = { 'lsp', 'path', 'buffer', 'codecompanion' },
+                    },
+                },
+            },
         },
         opts = {
             -- system_prompt = function(opts)
