@@ -8,3 +8,5 @@ node_modules
 .config/op
 .config/Webull*
 .config/github-copilot
+.config/packer
+
