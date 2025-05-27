@@ -15,7 +15,7 @@ autocmd("BufWritePost", {
     callback = function()
         local fname = vim.api.nvim_buf_get_name(0)
         Job:new({
-          command = 'terraform',
+          command = 'tofu',
           args = {'fmt', fname},
         }):sync() -- or start()
         vim.api.nvim_cmd({cmd = "edit"}, {output = false})

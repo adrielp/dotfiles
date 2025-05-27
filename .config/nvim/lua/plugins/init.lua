@@ -204,6 +204,7 @@ local plugs = {
     -- Enable if using copilot w/ codecompanion
     -- {'github/copilot.vim'},
     {
+        -- Docs: https://github.com/greggh/claude-code.nvim
         'greggh/claude-code.nvim',
         dependencies = {
             'nvim-lua/plenary.nvim',
@@ -213,6 +214,9 @@ local plugs = {
         end,
     },
     {
+        -- Docs: https://github.com/olimorris/codecompanion.nvim
+        -- TODO: Install and setup 
+        -- https://github.com/Davidyz/VectorCode/blob/main/docs/cli.md
         'olimorris/codecompanion.nvim',
         dependencies = {
             'j-hui/fidget.nvim',
