@@ -186,7 +186,17 @@ local plugs = {
     },
     {
         -- Docs: https://github.com/mfussenegger/nvim-dap
-        'mfussenegger/nvim-dap'
+        'mfussenegger/nvim-dap',
+        dependencies = {
+            {
+                -- Docs: https://github.com/leoluz/nvim-dap-go
+                'leoluz/nvim-dap-go',
+                init = function()
+                    require("dap-go").setup()
+                end,
+            },
+        }
+
     },
     -- Things seem to be properly working now.
     -- In the future, I may want to revisit the following plugins
@@ -224,16 +234,19 @@ local plugs = {
             'nvim-treesitter/nvim-treesitter',
             'nvim-telescope/telescope.nvim',
             {
-                'saghen/blink.cmp',
-                lazy = false,
-                version = "*",
-                opts = {
-                    cmdline = { sources = {'cmdline' } },
-                    sources = {
-                        default = { 'lsp', 'path', 'buffer', 'codecompanion' },
-                    },
-                },
+                'hrsh7th/nvim-cmp'
             },
+            -- {
+            --     'saghen/blink.cmp',
+            --     lazy = false,
+            --     version = "*",
+            --     opts = {
+            --         cmdline = { sources = {'cmdline' } },
+            --         sources = {
+            --             default = { 'lsp', 'path', 'buffer', 'codecompanion' },
+            --         },
+            --     },
+            -- },
         },
         opts = {
             -- system_prompt = function(opts)
