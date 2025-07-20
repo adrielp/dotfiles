@@ -10,3 +10,9 @@ node_modules
 .config/github-copilot
 .config/packer
 
+# Gemini
+.config/configstore
+
+# yarn
+.config/yarn
+
