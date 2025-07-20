@@ -194,9 +194,9 @@ end
 math.randomseed(os.time())
 -- Icon sets for random selection
 local icon_sets = {
-  stars = { '★', '☆', '✧', '✦', '✶', '✷', '✸', '✹' }, -- Set of star-like icons
-  hearts = { '❤', '♥', '♡', '❦', '❧' }, -- Set of heart-shaped icons
-  waves = { '≈', '∿', '≋', '≀', '⌀', '≣', '⌇' }, -- Set of wave-like symbols
+  -- stars = { '★', '☆', '✧', '✦', '✶', '✷', '✸', '✹' }, -- Set of star-like icons
+  -- hearts = { '❤', '♥', '♡', '❦', '❧' }, -- Set of heart-shaped icons
+  -- waves = { '≈', '∿', '≋', '≀', '⌀', '≣', '⌇' }, -- Set of wave-like symbols
 }
 
 -- Function to select a random icon from a given set

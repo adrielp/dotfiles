@@ -121,9 +121,16 @@ alias zd="zed ."
 alias cl="clear"
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
 
+# yazi -- a better ranger
+# alias yy="yazi"
 
-# ranger
-alias rr="ranger"
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	IFS= read -r -d '' cwd < "$tmp"
+	[ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
+	rm -f -- "$tmp"
+}
 
 # Kubectl completion
 source <(kubectl completion zsh)
@@ -140,7 +147,6 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 
 #If you come from bash you might have to change your $PATH.
 export PATH=$HOME/go/bin:$PATH
-# export PATH=$HOME/neovim/bin:$PATH
 export PATH=$HOME/.local/bin:$PATH
 
 # if you want to load extra zshrc files to source additional config then create
@@ -152,10 +158,6 @@ then
         source $f
     done
 fi
-#export PATH="/opt/homebrew/opt/node@16/bin:$PATH"
-# WARPify always according to warp docs
-printf '\eP$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh" }}\x9c'
-
 
 export EDITOR='nvim'
 
@@ -169,9 +171,15 @@ export NVM_DIR="$HOME/.nvm"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 eval "$(starship init zsh)"
 eval "$(/usr/libexec/path_helper)"
+eval "$(zoxide init zsh)"
 
 source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 plugins=(zsh-autosuggestions)
 
 . "$HOME/.local/bin/env"
 . "/Users/adriel/.deno/env"
+# The following lines have been added by Docker Desktop to enable Docker CLI completions.
+fpath=(/Users/adriel/.docker/completions $fpath)
+autoload -Uz compinit
+compinit
+# End of Docker CLI completions
