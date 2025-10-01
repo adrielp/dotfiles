@@ -212,151 +212,176 @@ local plugs = {
     -- AI Related Plugins
     -- =========================================================================
     -- Enable if using copilot w/ codecompanion
-    -- {'github/copilot.vim'},
     {
-        -- Docs: https://github.com/greggh/claude-code.nvim
-        'greggh/claude-code.nvim',
-        dependencies = {
-            'nvim-lua/plenary.nvim',
-        },
-        config = function()
-            require('claude-code').setup()
-        end,
-    },
-    {
-        -- Docs: https://github.com/olimorris/codecompanion.nvim
-        -- TODO: Install and setup 
-        -- https://github.com/Davidyz/VectorCode/blob/main/docs/cli.md
-        'olimorris/codecompanion.nvim',
-        dependencies = {
-            'j-hui/fidget.nvim',
-            'nvim-lua/plenary.nvim',
-            'nvim-treesitter/nvim-treesitter',
-            'nvim-telescope/telescope.nvim',
-            {
-                'hrsh7th/nvim-cmp'
-            },
-            -- {
-            --     'saghen/blink.cmp',
-            --     lazy = false,
-            --     version = "*",
-            --     opts = {
-            --         cmdline = { sources = {'cmdline' } },
-            --         sources = {
-            --             default = { 'lsp', 'path', 'buffer', 'codecompanion' },
-            --         },
-            --     },
-            -- },
-        },
-        opts = {
-            -- system_prompt = function(opts)
-            --     return ""
-            -- end,
-            strategies = {
-                chat = {
-                    adapter = "anthropic",
-                },
-                inline = {
-                    adapter = "anthropic",
-                },
-                cmd = {
-                    adapter = "anthropic",
-                }
-            },
-            adapters = {
-                anthropic = function()
-                    return require("codecompanion.adapters").extend("anthropic", {
-                        env = {
-                            api_key = "cmd:op read op://Private/AnthropicAPI/credential --no-newline"
-                        },
-                        schema = {
-                            model = {
-                                default = "claude-opus-4-20250514",
-                            },
-                        },
-                    })
-                    end
-                    -- return require("codecompanion.adapters").extend("openai_compatible", {
-                    -- env = {
-                    --   url = "http://192.168.1.164:1234", -- optional: default value is ollama url http://127.0.0.1:11434
-                    --   -- api_key = "OpenAI_API_KEY", -- optional: if your endpoint is authenticated
-                    --   chat_url = "/v1/chat/completions", -- optional: default value, override if different
-                    --   models_endpoint = "/v1/models", -- optional: attaches to the end of the URL to form the endpoint to retrieve models
-                    -- },
-                    -- schema = {
-                    --   model = {
-                    --     default = "zeta",  -- define llm model to be used
-                    --   },
-                      -- temperature = {
-                      --   order = 2,
-                      --   mapping = "parameters",
-                      --   type = "number",
-                      --   optional = true,
-                      --   default = 0.4,
-                      --   desc = "What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. We generally recommend altering this or top_p but not both.",
-                      --   validate = function(n)
-                      --     return n >= 0 and n <= 2, "Must be between 0 and 2"
-                      --   end,
-                      -- },
-                      -- max_completion_tokens = {
-                      --   order = 3,
-                      --   mapping = "parameters",
-                      --   type = "integer",
-                      --   optional = true,
-                      --   default = nil,
-                      --   desc = "An upper bound for the number of tokens that can be generated for a completion.",
-                      --   validate = function(n)
-                      --     return n > 0, "Must be greater than 0"
-                      --   end,
-                      -- },
-                      -- stop = {
-                      --   order = 4,
-                      --   mapping = "parameters",
-                      --   type = "string",
-                      --   optional = true,
-                      --   default = nil,
-                      --   desc = "Sets the stop sequences to use. When this pattern is encountered the LLM will stop generating text and return. Multiple stop patterns may be set by specifying multiple separate stop parameters in a modelfile.",
-                      --   validate = function(s)
-                      --     return s:len() > 0, "Cannot be an empty string"
-                      --   end,
-                      -- },
-                      -- logit_bias = {
-                      --   order = 5,
-                      --   mapping = "parameters",
-                      --   type = "map",
-                      --   optional = true,
-                      --   default = nil,
-                      --   desc = "Modify the likelihood of specified tokens appearing in the completion. Maps tokens (specified by their token ID) to an associated bias value from -100 to 100. Use https://platform.openai.com/tokenizer to find token IDs.",
-                      --   subtype_key = {
-                      --     type = "integer",
-                      --   },
-                      --   subtype = {
-                      --     type = "integer",
-                      --     validate = function(n)
-                      --       return n >= -100 and n <= 100, "Must be between -100 and 100"
-                      --     end,
-                      --   },
-                      -- },
-                  --   },
-                  -- })
-                -- end,
-                -- return require("codecompanion.adapters").extend("gemini", {
-                --     env = {
-                --         api_key = "cmd:op read op://Private/GeminiAPIKey/credential --no-newline"
-                --     },
-                -- })
-		        -- end
-                --     return require("codecompanion.adapters").extend("copilot", {
-                --         schema = {
-                --             model = {
-                --                 default = "claude-3.7-sonnet",
-                --             },
-                --         },
-                --     })
-                -- end
-            },
-        },
+      'NickvanDyke/opencode.nvim',
+      dependencies = {
+        -- Recommended for better prompt input, and required to use opencode.nvim's embedded terminal — otherwise optional
+        { 'folke/snacks.nvim', opts = { input = { enabled = true } } },
+      },
+      ---@type opencode.Opts
+      opts = {
+        -- Your configuration, if any — see lua/opencode/config.lua
+      },
+      keys = {
+        -- Recommended keymaps
+        { '<leader>oA', function() require('opencode').ask() end, desc = 'Ask opencode', },
+        { '<leader>oa', function() require('opencode').ask('@cursor: ') end, desc = 'Ask opencode about this', mode = 'n', },
+        { '<leader>oa', function() require('opencode').ask('@selection: ') end, desc = 'Ask opencode about selection', mode = 'v', },
+        { '<leader>ot', function() require('opencode').toggle() end, desc = 'Toggle embedded opencode', },
+        { '<leader>on', function() require('opencode').command('session_new') end, desc = 'New session', },
+        { '<leader>oy', function() require('opencode').command('messages_copy') end, desc = 'Copy last message', },
+        { '<S-C-u>',    function() require('opencode').command('messages_half_page_up') end, desc = 'Scroll messages up', },
+        { '<S-C-d>',    function() require('opencode').command('messages_half_page_down') end, desc = 'Scroll messages down', },
+        { '<leader>op', function() require('opencode').select_prompt() end, desc = 'Select prompt', mode = { 'n', 'v', }, },
+        -- Example: keymap for custom prompt
+        { '<leader>oe', function() require('opencode').prompt("Explain @cursor and its context") end, desc = "Explain code near cursor", },
+      },
     }
+    -- {'github/copilot.vim'},
+    -- {
+    --     -- Docs: https://github.com/greggh/claude-code.nvim
+    --     'greggh/claude-code.nvim',
+    --     dependencies = {
+    --         'nvim-lua/plenary.nvim',
+    --     },
+    --     config = function()
+    --         require('claude-code').setup()
+    --     end,
+    -- },
+    -- {
+    --     -- Docs: https://github.com/olimorris/codecompanion.nvim
+    --     -- TODO: Install and setup 
+    --     -- https://github.com/Davidyz/VectorCode/blob/main/docs/cli.md
+    --     'olimorris/codecompanion.nvim',
+    --     dependencies = {
+    --         'j-hui/fidget.nvim',
+    --         'nvim-lua/plenary.nvim',
+    --         'nvim-treesitter/nvim-treesitter',
+    --         'nvim-telescope/telescope.nvim',
+    --         {
+    --             'hrsh7th/nvim-cmp'
+    --         },
+    --         -- {
+    --         --     'saghen/blink.cmp',
+    --         --     lazy = false,
+    --         --     version = "*",
+    --         --     opts = {
+    --         --         cmdline = { sources = {'cmdline' } },
+    --         --         sources = {
+    --         --             default = { 'lsp', 'path', 'buffer', 'codecompanion' },
+    --         --         },
+    --         --     },
+    --         -- },
+    --     },
+    --     opts = {
+    --         -- system_prompt = function(opts)
+    --         --     return ""
+    --         -- end,
+    --         strategies = {
+    --             chat = {
+    --                 adapter = "anthropic",
+    --             },
+    --             inline = {
+    --                 adapter = "anthropic",
+    --             },
+    --             cmd = {
+    --                 adapter = "anthropic",
+    --             }
+    --         },
+    --         adapters = {
+    --             anthropic = function()
+    --                 return require("codecompanion.adapters").extend("anthropic", {
+    --                     env = {
+    --                         api_key = "cmd:op read op://Private/AnthropicAPI/credential --no-newline"
+    --                     },
+    --                     schema = {
+    --                         model = {
+    --                             default = "claude-opus-4-20250514",
+    --                         },
+    --                     },
+    --                 })
+    --                 end
+    --                 -- return require("codecompanion.adapters").extend("openai_compatible", {
+    --                 -- env = {
+    --                 --   url = "http://192.168.1.164:1234", -- optional: default value is ollama url http://127.0.0.1:11434
+    --                 --   -- api_key = "OpenAI_API_KEY", -- optional: if your endpoint is authenticated
+    --                 --   chat_url = "/v1/chat/completions", -- optional: default value, override if different
+    --                 --   models_endpoint = "/v1/models", -- optional: attaches to the end of the URL to form the endpoint to retrieve models
+    --                 -- },
+    --                 -- schema = {
+    --                 --   model = {
+    --                 --     default = "zeta",  -- define llm model to be used
+    --                 --   },
+    --                   -- temperature = {
+    --                   --   order = 2,
+    --                   --   mapping = "parameters",
+    --                   --   type = "number",
+    --                   --   optional = true,
+    --                   --   default = 0.4,
+    --                   --   desc = "What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. We generally recommend altering this or top_p but not both.",
+    --                   --   validate = function(n)
+    --                   --     return n >= 0 and n <= 2, "Must be between 0 and 2"
+    --                   --   end,
+    --                   -- },
+    --                   -- max_completion_tokens = {
+    --                   --   order = 3,
+    --                   --   mapping = "parameters",
+    --                   --   type = "integer",
+    --                   --   optional = true,
+    --                   --   default = nil,
+    --                   --   desc = "An upper bound for the number of tokens that can be generated for a completion.",
+    --                   --   validate = function(n)
+    --                   --     return n > 0, "Must be greater than 0"
+    --                   --   end,
+    --                   -- },
+    --                   -- stop = {
+    --                   --   order = 4,
+    --                   --   mapping = "parameters",
+    --                   --   type = "string",
+    --                   --   optional = true,
+    --                   --   default = nil,
+    --                   --   desc = "Sets the stop sequences to use. When this pattern is encountered the LLM will stop generating text and return. Multiple stop patterns may be set by specifying multiple separate stop parameters in a modelfile.",
+    --                   --   validate = function(s)
+    --                   --     return s:len() > 0, "Cannot be an empty string"
+    --                   --   end,
+    --                   -- },
+    --                   -- logit_bias = {
+    --                   --   order = 5,
+    --                   --   mapping = "parameters",
+    --                   --   type = "map",
+    --                   --   optional = true,
+    --                   --   default = nil,
+    --                   --   desc = "Modify the likelihood of specified tokens appearing in the completion. Maps tokens (specified by their token ID) to an associated bias value from -100 to 100. Use https://platform.openai.com/tokenizer to find token IDs.",
+    --                   --   subtype_key = {
+    --                   --     type = "integer",
+    --                   --   },
+    --                   --   subtype = {
+    --                   --     type = "integer",
+    --                   --     validate = function(n)
+    --                   --       return n >= -100 and n <= 100, "Must be between -100 and 100"
+    --                   --     end,
+    --                   --   },
+    --                   -- },
+    --               --   },
+    --               -- })
+    --             -- end,
+    --             -- return require("codecompanion.adapters").extend("gemini", {
+    --             --     env = {
+    --             --         api_key = "cmd:op read op://Private/GeminiAPIKey/credential --no-newline"
+    --             --     },
+    --             -- })
+    --       -- end
+    --             --     return require("codecompanion.adapters").extend("copilot", {
+    --             --         schema = {
+    --             --             model = {
+    --             --                 default = "claude-3.7-sonnet",
+    --             --             },
+    --             --         },
+    --             --     })
+    --             -- end
+    --         },
+    --     },
+    -- }
 }
 
 -- can add opts to .setup(plugs) 

@@ -120,6 +120,7 @@ alias gcr="git checkout main && git reset --hard origin/main"
 alias zd="zed ."
 alias cl="clear"
 alias tailscale="/Applications/Tailscale.app/Contents/MacOS/Tailscale"
+alias oc="opencode"
 
 # yazi -- a better ranger
 # alias yy="yazi"
@@ -183,3 +184,13 @@ fpath=(/Users/adriel/.docker/completions $fpath)
 autoload -Uz compinit
 compinit
 # End of Docker CLI completions
+
+# opencode
+export PATH=/Users/adriel/.opencode/bin:$PATH
+
+# bun completions
+[ -s "/Users/adriel/.bun/_bun" ] && source "/Users/adriel/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

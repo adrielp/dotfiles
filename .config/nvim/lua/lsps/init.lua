@@ -81,3 +81,4 @@ vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = "Open diagn
 require('lsps.luals')
 require('lsps.gopls')
 require('lsps.python')
+require('lsps.ts')
