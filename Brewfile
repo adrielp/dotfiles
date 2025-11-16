@@ -59,5 +59,4 @@ cask "rectangle"
 cask "flameshot"
 cask "slack"
 
-# cask "yubico-yubikey-manager"
 # cask "dbeaver-community"
