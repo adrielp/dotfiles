@@ -42,14 +42,6 @@ keymap("n", "<leader>k", ":wincmd k<cr>", opts)
 keymap("n", "<leader>l", ":wincmd l<cr>", opts)
 keymap("n", "<leader>sp", ":set paste!<cr>", opts)
 
--- Telescope Remaps
-keymap("n", "<leader>ff", "<cmd>lua require('telescope.builtin').find_files()<cr>", opts)
-keymap("n", "<leader>fg", "<cmd>lua require('telescope.builtin').live_grep()<cr>", opts)
-keymap("n", "<leader>fb", "<cmd>lua require('telescope.builtin').buffers()<cr>", opts)
-keymap("n", "<leader>fh", "<cmd>lua require('telescope.builtin').help_tags()<cr>", opts)
-keymap("n", "<leader>gb", "<cmd>lua require('telescope.builtin').git_branches()<cr>", opts)
-keymap("n", "<leader>gc", "<cmd>lua require('telescope.builtin').git_commits()<cr>", opts)
-
 -- File Remaps
 keymap("n", "<leader>fs", ":w<cr>", opts)
 keymap("n", "<leader>fq", ":q<cr>", opts)
@@ -63,18 +55,18 @@ wk.add({
     mode = { "n" },
     {"<leader>n", "<cmd>Oil<cr>", desc = "Open Oil"},
     {"<leader>f", group = file},
-    {"<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File"},
-    {"<leader>fb", "<cmd>Telescope oldfiles<cr>", desc = "Recently Used Files"},
-    {"<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep"},
-    {"<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags"},
+    {"<leader>ff", function() Snacks.picker.files() end,   desc = "Find File"},
+    {"<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers"},
+    {"<leader>fg", function() Snacks.picker.grep() end,    desc = "Live Grep"},
+    {"<leader>fh", function() Snacks.picker.help() end,    desc = "Help Tags"},
     {"<leader>fs", "<cmd>w<cr>", desc = "Save"},
     {"<leader>fq", "<cmd>q<cr>", desc = "Quit"},
     {"<leader>fQ", "<cmd>q!<cr>", desc = "Force Quit"},
     {"<leader>qa", "<cmd>qa<cr>", desc = "Quit All"},
     {"<leader>QA", "<cmd>qa!<cr>", desc = "Force Quit All"},
     {"<leader>g", group = git},
-    {"<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Git Branches"},
-    {"<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Git Commits"},
+    {"<leader>gb", function() Snacks.picker.git_branches() end, desc = "Git Branches"},
+    {"<leader>gc", function() Snacks.picker.git_log() end,      desc = "Git Log"},
     {"<leader>gs", function() Snacks.lazygit.open() end, desc = "Git Status"},
     {"<leader>co", "<cmd>CodeCompanionChat<cr>", desc = "Code Companion Chat"},
     {"<leader>fmt", "<cmd>set formatprg=<cr>", desc = "Reset formatter"},
