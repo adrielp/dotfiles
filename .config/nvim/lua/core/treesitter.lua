@@ -1,30 +1,24 @@
-require'nvim-treesitter.configs'.setup {
-  -- A list of parser names, or "all"
-  ensure_installed = {
-      "gitignore",
-      "go",
-      "gomod",
-      "hcl",
-      "hjson",
-      "lua",
-      "make",
-      "markdown",
-      "markdown_inline",
-      "python",
-      "regex",
-      "rust"
-  },
+-- nvim-treesitter main branch (0.12+) setup
+-- Highlight, indent, etc. are now built into Neovim and enabled by default.
+-- nvim-treesitter only manages parser installation and queries.
 
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
+require('nvim-treesitter').setup {
+  -- Directory to install parsers and queries to
+  install_dir = vim.fn.stdpath('data') .. '/site',
+}
 
-  -- Automatically install missing parsers when entering buffer
-  auto_install = true,
-
-  highlight = {
-    enable = true,
-
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
+-- Install parsers (no-op if already installed)
+require('nvim-treesitter').install {
+  'gitignore',
+  'go',
+  'gomod',
+  'hcl',
+  'hjson',
+  'lua',
+  'make',
+  'markdown',
+  'markdown_inline',
+  'python',
+  'regex',
+  'rust',
 }

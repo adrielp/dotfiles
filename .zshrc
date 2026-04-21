@@ -194,3 +194,6 @@ export PATH=/Users/adriel/.opencode/bin:$PATH
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Trust homelab self-signed CA for OpenCode / Node.js
+export NODE_EXTRA_CA_CERTS=$HOME/homelab-ca.pem

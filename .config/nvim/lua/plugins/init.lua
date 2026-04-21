@@ -79,10 +79,9 @@ local plugs = {
     {
         -- Docs: https://github.com/nvim-treesitter/nvim-treesitter
         'nvim-treesitter/nvim-treesitter',
+        branch = 'main',
+        lazy = false,
         build = ':TSUpdate',
-        dependencies = {
-            'nvim-treesitter/playground'
-        }
     },
     {
         -- Docs: https://github.com/darrikonn/vim-gofmt
