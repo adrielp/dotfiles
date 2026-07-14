@@ -1,0 +1,40 @@
+# herdr keybindings — migrated from zellij
+# Plan: thoughts/shared/plans/herdr-keybinding-migration.md
+# Philosophy: stock herdr v2 keymap + minimal muscle-memory overlay (2 overrides).
+#
+# Defaults we RELY on (not overridden; listed for reference):
+#   prefix+h/j/k/l        focus pane left/down/up/right   (zellij habit: Ctrl+a → hjkl)
+#   prefix+r              resize mode                     (zellij habit: Ctrl+r)
+#   prefix+v              split right (side by side)
+#   prefix+shift+h/j/k/l  swap pane in direction
+#   prefix+c              new tab                         (tmux-era habit)
+#   prefix+n / prefix+p   NEXT / previous tab  ⚠ retrain: zellij tab-mode "n" was NEW tab
+#   prefix+1..9           switch tab
+#   prefix+x              close pane
+#   prefix+q              detach
+#   prefix+[              copy mode (note: with ctrl+b prefix, ctrl+b inside copy mode
+#                         enters prefix mode instead of paging up — documented herdr quirk)
+
+# User preferences (merged from pre-existing local config)
+onboarding = false
+
+[experimental]
+switch_ascii_input_source_in_prefix = false
+
+[theme]
+name = "catppuccin"
+auto_switch = false
+
+[ui]
+agent_panel_sort = "priority"
+
+[keys]
+# Herdr's default prefix, declared explicitly for self-documentation.
+# Accepted tradeoff: shadows nvim native C-b (page up) and zsh C-b (backward-char).
+prefix = "ctrl+b"
+
+# Split down: herdr default prefix+minus, plus zellij pane-mode "d" habit.
+split_horizontal = ["prefix+minus", "prefix+d"]
+
+# Fullscreen: herdr default prefix+z, plus zellij pane-mode "f" habit (prefix+f free in v2).
+zoom = ["prefix+z", "prefix+f"]
